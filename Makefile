@@ -45,16 +45,14 @@ DEPS 			= $(HEADER) $(MAKEFILE) $(LIBFT_MAKEFILE) $(LIBFT_SRCS) $(LIBFT_H)
 #                               Source File                                    #
 # **************************************************************************** #
 SRC 		:= $(SRC_DIR)/core/main.c \
-			   $(SRC_DIR)/commands/ \
+               $(SRC_DIR)/parsing/parse.c \
+               $(SRC_DIR)/parsing/parse_strict_atoi.c \
                $(SRC_DIR)/error_handling/fatal_error.c \
-               $(SRC_DIR)/error_handling/handle_error.c \
                $(SRC_DIR)/utils/free_2d_array.c \
-               $(SRC_DIR)/validation/validate.c \
-               $(SRC_DIR)/validation/parse_strict_atoi.c
 
 
 # Object files
-OBJ			= $(SRC_PUSH_SWAP:.c=.o) $(SRC_COMMON:.c=.o)
+OBJ			= $(SRC:.c=.o)
 
 # Libft files to use for time stamp check
 LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_isdigit.c \

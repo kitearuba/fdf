@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../include/fdf.h"
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -21,8 +21,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	fatal_error(void)
+void fatal_error(const char *msg)
 {
-	ft_printf_fd(STDERR, "Error\n");
+	if (msg)
+		ft_printf_fd(STDERR, "%s", msg);
+	ft_printf_fd(STDERR, "\n");
 	exit(EXIT_FAILURE);
 }

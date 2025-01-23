@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../include/fdf.h"
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -55,22 +55,6 @@ static int	is_valid_number(const char *str)
 
 /* ************************************************************************** */
 /*                                                                            */
-/*   handle_error_and_free                                                    */
-/*                                                                            */
-/*   Handles error by freeing resources and triggering an error handler.      */
-/*                                                                            */
-/*   @param stack: The stack structure to clean up.                           */
-/*   @param args: The 2D array to free.                                       */
-/*                                                                            */
-/* ************************************************************************** */
-static void	handle_error_and_free(t_stack *stack, char **args)
-{
-	free_2d_array(args);
-	handle_error(stack, NULL);
-}
-
-/* ************************************************************************** */
-/*                                                                            */
 /*   handle_sign                                                              */
 /*                                                                            */
 /*   Determines the sign of the number from the input string.                 */
@@ -104,28 +88,33 @@ static int	handle_sign(const char **str)
 /*   @return: The converted integer value.                                    */
 /*                                                                            */
 /* ************************************************************************** */
-int	parse_strict_atoi(const char *str, t_stack **stack, char **args)
+int	parse_strict_atoi(const char *str, char **args)
 {
 	long long	result;
 	int			sign;
 
 	result = 0;
+	if (!str || !*str)
+		fatal_error("Invalid input detected");
 	skip_whitespace(&str);
 	if (!is_valid_number(str))
-		handle_error_and_free(*stack, args);
+        {
+		free_2d_array(args);
+                fatal_error( "Invalid number 1 ");
+        }
 	sign = handle_sign(&str);
 	while (*str == 0)
 		str++;
 	if (!*str)
-		fatal_error();
+		fatal_error("Invalid number 2 ");
 	while (*str && ft_isdigit(*str))
 	{
 		result = result * 10 + (*str - '0');
 		if ((sign * result) > MAX_INT || (sign * result) < MIN_INT)
-			handle_error_and_free(*stack, args);
+			fatal_error("Invalid number 3 ");
 		str++;
 	}
 	if (*str)
-		fatal_error();
+		fatal_error("Invalid number 4 ");
 	return ((int)(sign * result));
 }
