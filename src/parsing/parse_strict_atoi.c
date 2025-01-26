@@ -11,14 +11,11 @@
 /* ************************************************************************** */
 
 #include "../../include/fdf.h"
-
 /* ************************************************************************** */
 /*                                                                            */
 /*   skip_whitespace                                                          */
 /*                                                                            */
 /*   Skips over whitespace characters in the input string.                    */
-/*                                                                            */
-/*   @param str: Pointer to the input string.                                 */
 /*                                                                            */
 /* ************************************************************************** */
 static void	skip_whitespace(const char **str)
@@ -34,33 +31,39 @@ static void	skip_whitespace(const char **str)
 /*                                                                            */
 /*   Validates the input string to ensure it represents a valid number.       */
 /*                                                                            */
-/*   @param str: Pointer to the input string.                                 */
-/*   @return: 1 if valid, 0 otherwise.                                        */
-/*                                                                            */
 /* ************************************************************************** */
-static int	is_valid_number(const char *str)
+static int is_valid_number(const char *str)
 {
-	if (*str == '+' || *str == '-')
-		str++;
-	if (!*str)
-		return (0);
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
-	}
-	return (1);
+    int has_digit;
+
+    if (*str == '\0') // If the string starts as empty, it's invalid
+        return (0);
+    has_digit = 0;
+    // Handle strings composed entirely of zeros
+    if (*str == '0')
+    {
+        while (*str == '0')
+            str++;
+        if (*str == '\0') // If no other characters are found, it's valid
+            return (1);
+    }
+    while (*str)
+    {
+        if (!ft_isdigit(*str)) // Non-digit character found, invalid
+            return (0);
+        has_digit = 1; // At least one digit is found
+        str++;
+    }
+    return (has_digit); // Return 1 if we found any valid digits, else 0
 }
+
+
 
 /* ************************************************************************** */
 /*                                                                            */
 /*   handle_sign                                                              */
 /*                                                                            */
 /*   Determines the sign of the number from the input string.                 */
-/*                                                                            */
-/*   @param str: Pointer to the input string.                                 */
-/*   @return: -1 if the number is negative, 1 otherwise.                      */
 /*                                                                            */
 /* ************************************************************************** */
 static int	handle_sign(const char **str)
@@ -79,13 +82,23 @@ static int	handle_sign(const char **str)
 
 /* ************************************************************************** */
 /*                                                                            */
+/*   handle_error_and_free                                                    */
+/*                                                                            */
+/*   Frees the 2D array and triggers a fatal error with the given message.    */
+/*                                                                            */
+/* ************************************************************************** */
+static void	handle_error_and_free(char *msg, char **args)
+{
+	free_2d_array(args);
+	fatal_error(msg);
+}
+
+/* ************************************************************************** */
+/*                                                                            */
 /*   parse_strict_atoi                                                        */
 /*                                                                            */
 /*   Converts a string to an integer while ensuring strict validation.        */
 /*   Triggers an error if the input is invalid or exceeds integer limits.     */
-/*                                                                            */
-/*   @param str: The input string to parse.                                   */
-/*   @return: The converted integer value.                                    */
 /*                                                                            */
 /* ************************************************************************** */
 int	parse_strict_atoi(const char *str, char **args)
@@ -95,26 +108,20 @@ int	parse_strict_atoi(const char *str, char **args)
 
 	result = 0;
 	if (!str || !*str)
-		fatal_error("Invalid input detected");
+    	handle_error_and_free("Invalid input detected (empty string)", args);
 	skip_whitespace(&str);
+    ft_printf("Value before processing: '%s'\n", str); // Debug
+    sign = handle_sign(&str);
 	if (!is_valid_number(str))
-        {
-		free_2d_array(args);
-                fatal_error( "Invalid number 1 ");
-        }
-	sign = handle_sign(&str);
-	while (*str == 0)
-		str++;
-	if (!*str)
-		fatal_error("Invalid number 2 ");
+    	handle_error_and_free("Invalid input detected (invalid number)", args);
 	while (*str && ft_isdigit(*str))
 	{
 		result = result * 10 + (*str - '0');
 		if ((sign * result) > MAX_INT || (sign * result) < MIN_INT)
-			fatal_error("Invalid number 3 ");
-		str++;
+	    	handle_error_and_free("Invalid input detected (out of range)", args);
+        str++;
 	}
 	if (*str)
-		fatal_error("Invalid number 4 ");
+		handle_error_and_free("Invalid input detected (extra characters)", args);
 	return ((int)(sign * result));
 }
