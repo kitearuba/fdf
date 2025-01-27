@@ -12,180 +12,108 @@
 
 #include "../../include/fdf.h"
 
-static int	ft_str_is_whitespace(const char *str)
+// Function to free the map data
+void free_map(t_map *map)
 {
-	while (*str)
-	{
-		if (*str != ' ' && *str != '\t' && *str != '\n'
-			&& *str != '\v' && *str != '\f' && *str != '\r')
-			return (0);
-		str++;
-	}
-	return (1);
+  int i;
+
+  i = 0;
+  if (map->data)
+  {
+    while (i < map->height)
+    {
+      free(map->data[i]);
+      i++;
+    }
+    free(map->data);
+  }
 }
 
-/* ************************************************************************** */
-/* FUNCTION: count_dimensions
- * ---------------------------
- * Counts the width (columns) and height (rows) of the .fdf file.
- * ************************************************************************** */
-static int count_dimensions(int fd, t_map *map)
+// Function to parse the .fdf file
+int parse_map(const char *filename, t_map *map)
 {
-    char    *line;
-    char    **split_line;
-    int     width;
+  int fd;
+  char *line;
+  char **tokens;
+  int row = 0;
+  int col;
+  int i;
 
-    map->height = 0;
-    map->width = 0;
-    while ((line = get_next_line(fd)) != NULL)
+  i = 0;
+  fd = open(filename, O_RDONLY);
+  if (fd == -1)
+  {
+    ft_printf_fd(STDERR, "Error: Could not open file %s\n", filename);
+    return (0);
+  }
+  // First pass: Count the number of lines (height) and tokens (width)
+  map->height = 0;
+  map->width = 0;
+  while ((line = get_next_line(fd)) != NULL)
+  {
+    tokens = ft_split(line, ' ');
+    col = 0;
+    while (tokens[col])
+      col++;
+    if (map->width == 0)
+      map->width = col;
+    else if (col != map->width)
     {
-        ft_printf("Reading line: '%s'\n", line); // Debug
-
-        // Skip empty or whitespace-only lines
-        if (line == NULL || *line == '\0' || ft_str_is_whitespace(line))
-        {
-            ft_printf("Skipping empty/whitespace-only line.\n");
-            free(line);
-            continue;
-        }
-
-        width = 0;
-        split_line = ft_split(line, ' ');
-        if (!split_line || !split_line[0]) // Handle invalid splits
-        {
-            ft_printf("Skipping invalid split for line: '%s'\n", line);
-            free_2d_array(split_line);
-            free(line);
-            continue;
-        }
-
-        while (split_line[width])
-        {
-            ft_printf("Split value: '%s'\n", split_line[width]);
-            width++;
-        }
-
-        if (map->height == 0)
-            map->width = width;
-        else if (width != map->width) // Mismatched widths
-        {
-            ft_printf("Width mismatch: Expected %d, Found %d\n", map->width, width);
-            free_2d_array(split_line);
-            free(line);
-            close(fd);
-            return (0);
-        }
-
-        map->height++;
-        free(line);
-        free_2d_array(split_line);
+      ft_printf_fd(STDERR, "Error: Inconsistent row length at line %d\n", map->height + 1);
+      free(line);
+      free(tokens);
+      close(fd);
+      return (0);
     }
-
-    if (map->height == 0 || map->width == 0)
-    {
-        ft_printf("No valid rows found. Height: %d, Width: %d\n", map->height, map->width);
-        return (0);
-    }
-
-    ft_printf("Final Dimensions: Height = %d, Width = %d\n", map->height, map->width);
-    return (1);
-}
-
-/* ************************************************************************** */
-/* FUNCTION: parse_map                                                        */
-/* Parses the .fdf file and stores the data into a t_map structure.           */
-/* ************************************************************************** */
-t_map *parse_map(const char *filename)
-{
-    int     fd;
-    int     row;
-    int     col;
-    char    *line;
-    char    **split_line;
-    t_map   *map;
-
-    fd = open(filename, O_RDONLY);
-    if (fd < 0)
-    {
-        ft_printf_fd(STDERR, "Error: Cannot open file %s\n", filename);
-        return (NULL);
-    }
-
-    map = malloc(sizeof(t_map));
-    if (!map)
-        return (NULL);
-    map->height = 0;
-    map->width = 0;
-
-    if (!count_dimensions(fd, map))
-    {
-        free(map);
-        close(fd);
-        return (NULL);
-    }
+    map->height++;
+    free(line);
+    free_2d_array(tokens);
+  }
+  // Allocate memory for the map data
+  map->data = (int **)malloc(map->height * sizeof(int *));
+  if (!map->data)
+  {
+    ft_printf_fd(STDERR, "Error: Memory allocation failed\n");
     close(fd);
-
-    map->grid = malloc(sizeof(int *) * map->height);
-    if (!map->grid)
+    return (0);
+  }
+  while (i < map->height)
+  {
+    map->data[i] = (int *)malloc(map->width * sizeof(int));
+    if (!map->data[i])
     {
-        free(map);
-        return (NULL);
+      ft_printf_fd(STDERR, "Error: Memory allocation failed\n");
+      free_map(map);
+      close(fd);
+      return (0);
     }
+    i++;
+  }
+  // Second pass: Read the file again and store the height values
+  close(fd);
+  fd = open(filename, O_RDONLY);
+  if (fd == -1)
+  {
+    ft_printf_fd(STDERR, "Error: Could not open file %s\n", filename);
+    free_map(map);
+    return (0);
+  }
 
-    fd = open(filename, O_RDONLY);
-    if (fd < 0)
+  row = 0;
+  while ((line = get_next_line(fd)) != NULL)
+  {
+    tokens = ft_split(line, ' ');
+    col = 0;
+    while (tokens[col])
     {
-        free(map->grid);
-        free(map);
-        return (NULL);
+      map->data[row][col] = ft_atoi(tokens[col]);
+      col++;
     }
+    row++;
+    free(line);
+    free_2d_array(tokens);
+  }
 
-    row = 0;
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        if (line == NULL || *line == '\0' || ft_str_is_whitespace(line))
-        {
-            ft_printf("Skipping empty/whitespace-only line.\n");
-            free(line);
-            continue;
-        }
-
-        ft_printf("Reading line: '%s'\n", line); // Debug
-        split_line = ft_split(line, ' ');
-        if (!split_line || !split_line[0])
-        {
-            ft_printf("Skipping invalid split for line: '%s'\n", line);
-            free_2d_array(split_line);
-            free(line);
-            continue;
-        }
-
-        map->grid[row] = malloc(sizeof(int) * map->width);
-        if (!map->grid[row])
-        {
-            free(line);
-            free_2d_array(split_line);
-            while (row-- > 0)
-                free(map->grid[row]);
-            free(map->grid);
-            free(map);
-            close(fd);
-            return (NULL);
-        }
-
-        col = 0;
-        while (col < map->width)
-        {
-            ft_printf("Converting value: '%s'\n", split_line[col]); // Debug
-            map->grid[row][col] = parse_strict_atoi(split_line[col], split_line);
-            col++;
-        }
-
-        free(line);
-        free_2d_array(split_line);
-        row++;
-    }
-
-    close(fd);
-    return (map);
+  close(fd);
+  return (1);
 }

@@ -53,7 +53,8 @@ SRCS = $(SRCS_DIR)/ft_isalpha.c $(SRCS_DIR)/ft_isdigit.c \
        $(SRCS_DIR)/handle_hex.c $(SRCS_DIR)/handle_percent.c \
        $(SRCS_DIR)/utils.c $(SRCS_DIR)/get_next_line.c \
        $(SRCS_DIR)/get_next_line_bonus.c $(SRCS_DIR)/ft_strappend.c \
-       $(SRCS_DIR)/ft_printf_fd.c $(SRCS_DIR)/ft_strcmp.c
+       $(SRCS_DIR)/ft_printf_fd.c $(SRCS_DIR)/ft_strcmp.c \
+       $(SRCS_DIR)/ft_word_counter.c $(SRCS_DIR)/ft_line_counter.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)
