@@ -7,7 +7,6 @@
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
-    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
     <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppFormatterOtherPage" type="string" />
     <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="11" type="long" />
   </component>
@@ -15,7 +14,12 @@
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
   <component name="CMakeRunConfigurationManager">
-    <generated />
+    <generated>
+      <config projectName="fdf_0127" targetName="fdf" />
+      <config projectName="fdf_0127" targetName="fclean" />
+      <config projectName="fdf_0127" targetName="all" />
+      <config projectName="fdf_0127" targetName="re" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -24,84 +28,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efaa287-e87c-437f-8995-70c195d84775" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/libft/src/ft_line_counter.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libft/src/ft_word_counter.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/small.fdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/parsing/parse_edit.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sm.fdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/error_handling/free_on_error.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/free_map.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/fdf.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fdf.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/libft/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/include/libft.h" beforeDir="false" afterPath="$PROJECT_DIR$/libft/include/libft.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_atoi.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_atoi.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_bzero.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_bzero.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_calloc.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_calloc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_isalnum.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_isalnum.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_isalpha.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_isalpha.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_isascii.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_isascii.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_isdigit.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_isdigit.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_isprint.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_isprint.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_itoa.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_itoa.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_lstadd_back_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_lstadd_back_bonus.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_lstadd_front_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_lstadd_front_bonus.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_lstclear_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_lstclear_bonus.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_lstdelone_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_lstdelone_bonus.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_lstiter_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_lstiter_bonus.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_lstlast_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_lstlast_bonus.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_lstmap_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_lstmap_bonus.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_lstnew_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_lstnew_bonus.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_lstsize_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_lstsize_bonus.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_memchr.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_memchr.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_memcmp.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_memcmp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_memcpy.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_memcpy.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_memmove.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_memmove.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_memset.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_memset.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_printf.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_printf.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_printf_fd.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_printf_fd.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_putchar_fd.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_putchar_fd.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_putendl_fd.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_putendl_fd.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_puthex.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_puthex.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_putnbr_fd.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_putnbr_fd.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_putstr_fd.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_putstr_fd.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_putunbr.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_putunbr.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_split.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_split.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strappend.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strappend.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strchr.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strchr.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strcmp.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strcmp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strdup.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strdup.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_striteri.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_striteri.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strjoin.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strjoin.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strlcat.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strlcat.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strlcpy.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strlcpy.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strlen.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strlen.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strmapi.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strmapi.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strncmp.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strncmp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strnstr.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strnstr.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strrchr.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strrchr.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_strtrim.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_strtrim.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_substr.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_substr.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_tolower.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_tolower.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/ft_toupper.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/ft_toupper.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/get_next_line.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/get_next_line.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/get_next_line_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/get_next_line_bonus.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/handle_char.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/handle_char.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/handle_hex.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/handle_hex.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/handle_int.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/handle_int.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/handle_percent.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/handle_percent.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/handle_pointer.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/handle_pointer.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/handle_string.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/handle_string.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/handle_uint.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/handle_uint.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/print_format.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/print_format.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/src/utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/src/utils.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/error_handling/fatal_error.o" beforeDir="false" afterPath="$PROJECT_DIR$/src/error_handling/fatal_error.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/error_handling/handle_error.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parsing/parse.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/parse.o" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/parse_strict_atoi.o" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse_strict_atoi.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/free_2d_array.o" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/free_2d_array.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parsing/parse_strict_atoi.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse_strict_atoi.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +47,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/..">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
@@ -116,30 +57,32 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/include/fdf.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/core/main.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/parsing/parse.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/parsing/parse_strict_atoi.c" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/utils/free_2d_array.c" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MakefileLocalSettings">
     <option name="availableProjects">
       <map>
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="fdf" />
+              <option name="name" value="fdf_0127" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="fdf" />
+                <option name="name" value="fdf_0127" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
           </value>
         </entry>
-      </map>
-    </option>
-    <option name="projectSyncType">
-      <map>
-        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
       </map>
     </option>
   </component>
@@ -151,28 +94,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cf.advertisement.text.overridden": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/chrrodri/homework/fdf/src/parsing",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor.code.editing",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.advertisement.text.overridden&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/christian/Desktop/fdf/fdf_0127&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor.code.editing&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/parsing" />
@@ -181,6 +124,39 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/libft" />
     </key>
+  </component>
+  <component name="RunManager" selected="Native Application.all">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf_0127" TARGET_NAME="all" CONFIG_NAME="all" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf_0127" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fdf" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf_0127" TARGET_NAME="fdf" CONFIG_NAME="fdf" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf_0127" TARGET_NAME="re" CONFIG_NAME="re" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Native Application.all" />
+      <item itemvalue="Native Application.fclean" />
+      <item itemvalue="Native Application.fdf" />
+      <item itemvalue="Native Application.re" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -195,6 +171,10 @@
       <workItem from="1737923317618" duration="3475000" />
       <workItem from="1737990462804" duration="127000" />
       <workItem from="1737990597606" duration="17729000" />
+      <workItem from="1738021190776" duration="8892000" />
+      <workItem from="1738032693139" duration="8568000" />
+      <workItem from="1738084961448" duration="621000" />
+      <workItem from="1738093047524" duration="11000" />
     </task>
     <servers />
   </component>

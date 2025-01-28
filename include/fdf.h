@@ -46,7 +46,8 @@ typedef struct s_fdf {
 int     parse_map(const char *filename, t_map *map);
 void    free_2d_array(char **arr);
 int     parse_strict_atoi(const char *str, char **args);
-void	fatal_error(const char *msg);
+void    fatal_error(const char *msg);
 void    free_map(t_map *map);
+//void    free_resources_on_error(char **str, const char *error_message);
 
 #endif //FDF_FDF_H

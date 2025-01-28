@@ -49,7 +49,7 @@ SRC 		:= $(SRC_DIR)/core/main.c \
                $(SRC_DIR)/parsing/parse_strict_atoi.c \
                $(SRC_DIR)/error_handling/fatal_error.c \
                $(SRC_DIR)/utils/free_2d_array.c \
-
+               $(SRC_DIR)/utils/free_map.c
 
 # Object files
 OBJ			= $(SRC:.c=.o)
