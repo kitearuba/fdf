@@ -20,7 +20,7 @@ NAME 			= fdf
 # **************************************************************************** #
 CC 				= gcc
 CFLAGS			= -Wall -Wextra -Werror -g -fsanitize=address,undefined -O0
-MLXi			= -lmlx -lXext -lX11 -lm
+MLXi			= -L./minilibx-linux -lmlx -L/usr/lib -lXext -lX11 -lm
 RM				= rm -rf
 MAKE			= make
 
@@ -48,8 +48,15 @@ SRC 		:= $(SRC_DIR)/core/main.c \
                $(SRC_DIR)/parsing/parse.c \
                $(SRC_DIR)/parsing/parse_strict_atoi.c \
                $(SRC_DIR)/error_handling/fatal_error.c \
+               $(SRC_DIR)/error_handling/free_on_error.c \
                $(SRC_DIR)/utils/free_2d_array.c \
-               $(SRC_DIR)/utils/free_map.c
+               $(SRC_DIR)/utils/free_map.c \
+               $(SRC_DIR)/utils/free_fdf.c \
+               $(SRC_DIR)/utils/find_min_max_z.c \
+               $(SRC_DIR)/render/init_fdf.c \
+               $(SRC_DIR)/render/render.c \
+               $(SRC_DIR)/render/handle_keys.c \
+               $(SRC_DIR)/render/get_color.c \
 
 # Object files
 OBJ			= $(SRC:.c=.o)
@@ -97,7 +104,7 @@ all: $(NAME)
 
 # Build push_swap executable
 $(NAME): $(OBJ) $(LIBFT_A)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_A) -I$(INC_DIR) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_A) $(MLXi) -I$(INC_DIR) -o $(NAME)
 
 # Rule to rebuild libft.a
 $(LIBFT_A): $(LIBFT_MAKEFILE) $(LIBFT_SRCS) $(LIBFT_H)

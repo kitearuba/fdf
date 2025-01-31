@@ -30,7 +30,7 @@ static int allocate_map_memory(t_map *map)
             return (0);
         }
         // Use memset to initialize the allocated memory to 0
-        memset(map->data[i], 0, map->width * sizeof(int));
+        ft_memset(map->data[i], 0, map->width * sizeof(int));
         i++;
     }
     return (1);
