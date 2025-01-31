@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/30 23:45:29 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/31 22:54:55 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	handle_exit(t_fdf *fdf)
 {
-    free_fdf(fdf);
-    exit(0);
-    return (0);
+	free_fdf(fdf);
+	exit(0);
+	return (0);
 }
 
 static void	set_window_size(t_fdf *fdf)
@@ -42,10 +42,8 @@ static void	set_offset(t_fdf *fdf, t_map *map)
 	int	center_x;
 	int	center_y;
 
-	// Correcting for isometric projection
 	center_x = ((map->width - 1) - (map->height - 1)) * fdf->zoom / 2;
 	center_y = ((map->width - 1) + (map->height - 1)) * fdf->zoom / 4;
-
 	fdf->offset_x = fdf->win_width / 2 - center_x;
 	fdf->offset_y = fdf->win_height / 2 - center_y;
 }
@@ -84,9 +82,8 @@ t_fdf	*init_fdf(t_map *map)
 	init_mlx_window(fdf);
 	init_image_buffer(fdf);
 	mlx_hook(fdf->win, 17, 0, handle_exit, fdf);
-	//mlx_key_hook(fdf->win, handle_key, fdf);
 	mlx_hook(fdf->win, 2, 1L << 0, handle_key_press, fdf);
 	mlx_hook(fdf->win, 3, 1L << 1, handle_key_release, fdf);
-	mlx_loop_hook(fdf->mlx, update_frame, fdf); // Continuously check key states
+	mlx_loop_hook(fdf->mlx, update_frame, fdf);
 	return (fdf);
 }

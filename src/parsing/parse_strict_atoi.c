@@ -6,35 +6,35 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 21:07:41 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/18 12:28:01 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/31 22:00:17 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fdf.h"
 
-static void skip_whitespace(const char **str)
+static void	skip_whitespace(const char **str)
 {
-	while (**str == ' ' || **str == '\t' || **str == '\n' ||
-	       **str == '\f' || **str == '\v' || **str == '\r')
+	while (**str == ' ' || **str == '\t' || **str == '\n' || **str == '\f'
+		|| **str == '\v' || **str == '\r')
 		(*str)++;
 }
 
-static int is_valid_number(const char *str)
+static int	is_valid_number(const char *str)
 {
-	if (!str || *str == '\0') // Empty string is invalid
+	if (!str || *str == '\0')
 		return (0);
 	while (*str)
 	{
-		if (!ft_isdigit(*str)) // Non-digit character makes it invalid
+		if (!ft_isdigit(*str))
 			return (0);
 		str++;
 	}
 	return (1);
 }
 
-static int handle_sign(const char **str)
+static int	handle_sign(const char **str)
 {
-	int sign;
+	int	sign;
 
 	sign = 1;
 	if (**str == '-' || **str == '+')
@@ -46,16 +46,16 @@ static int handle_sign(const char **str)
 	return (sign);
 }
 
-static void handle_error_and_free(char *msg, char **args)
+static void	handle_error_and_free(char *msg, char **args)
 {
 	free_2d_array(args);
 	fatal_error(msg);
 }
 
-int parse_strict_atoi(const char *str, char **args)
+int	parse_strict_atoi(const char *str, char **args)
 {
-	long long result;
-	int sign;
+	long long	result;
+	int			sign;
 
 	result = 0;
 	if (!str || !*str)
@@ -68,7 +68,8 @@ int parse_strict_atoi(const char *str, char **args)
 	{
 		result = result * 10 + (*str - '0');
 		if ((sign * result) > MAX_INT || (sign * result) < MIN_INT)
-			handle_error_and_free("Invalid input detected (out of range)", args);
+			handle_error_and_free
+				("Invalid input detected (out of range)", args);
 		str++;
 	}
 	return ((int)(sign * result));

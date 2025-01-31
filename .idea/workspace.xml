@@ -16,10 +16,11 @@
   </component>
   <component name="CMakeRunConfigurationManager">
     <generated>
-      <config projectName="fdf_0127" targetName="fdf" />
-      <config projectName="fdf_0127" targetName="fclean" />
-      <config projectName="fdf_0127" targetName="all" />
-      <config projectName="fdf_0127" targetName="re" />
+      <config projectName="fdf" targetName="fdf" />
+      <config projectName="fdf" targetName="re" />
+      <config projectName="fdf" targetName="fclean" />
+      <config projectName="fdf" targetName="all" />
+      <config projectName="fdf" targetName=";" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -29,75 +30,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efaa287-e87c-437f-8995-70c195d84775" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/render/get_color.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/render/handle_keys.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/render/init_fdf.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/render/render.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/render/render_v1.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/find_min_max_z.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/free_fdf.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/titi.fdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/headers/fdf.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/headers/macros.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/headers/struct.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/intro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/iso.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/make.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/map.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/minilibx-linux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/minilibx-linux.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/ortho.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/atoi.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/get_map.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/gnl1.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/heap_list.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/init_fdf.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/key_hooks.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/main.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/mouse_hooks.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/talloc.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/terror.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/update_frame.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/utils.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf-main/srcs/window.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.fdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/include/fdf.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fdf.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/10-2.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/10-70.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/100-6.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/20-60.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/42.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/50-4.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/basictest.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/elem-col.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/elem-fract.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/elem.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/elem2.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/julia.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/mars.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/pentenegpos.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/plat.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/pnp_flat.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/pylone.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/pyra.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/pyramide.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/t1.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/t2.fdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shell/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shell/exercism.fish" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shell/exercism_completion.bash" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shell/exercism_completion.zsh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/libft/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/include/libft.h" beforeDir="false" afterPath="$PROJECT_DIR$/libft/include/libft.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/src/ft_line_counter.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/src/ft_word_counter.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sm.fdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/main_practice_mlx.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/error_handling/fatal_error.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/error_handling/fatal_error.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/error_handling/free_on_error.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/error_handling/free_on_error.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parsing/parse.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/parse_edit.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parsing/parse_strict_atoi.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse_strict_atoi.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/get_color.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/get_color.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/handle_keys.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/handle_keys.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/init_fdf.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/init_fdf.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/render.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/render.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/render_v1.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/find_min_max_z.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/find_min_max_z.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/free_fdf.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/free_fdf.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/free_map.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/free_map.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,19 +85,24 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="fdf_0127" />
+              <option name="name" value="fdf" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="fdf_0127" />
+                <option name="name" value="fdf" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
       </map>
     </option>
   </component>
@@ -164,13 +126,13 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/christian/Desktop/fdf/fdf_0127",
+    "last_opened_file_path": "/home/chrrodri/homework/fdf",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor.code.editing",
+    "settings.editor.selected.configurable": "fileTemplates",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -186,7 +148,22 @@
     </key>
   </component>
   <component name="RunManager" selected="Native Application.all">
+    <configuration name=";" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf" TARGET_NAME=";" CONFIG_NAME=";" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf" TARGET_NAME="all" CONFIG_NAME="all" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf_0127" TARGET_NAME="all" CONFIG_NAME="all" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
@@ -196,7 +173,17 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration name="fdf" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf" TARGET_NAME="fdf" CONFIG_NAME="fdf" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="fdf" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf_0127" TARGET_NAME="fdf" CONFIG_NAME="fdf" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf" TARGET_NAME="re" CONFIG_NAME="re" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
@@ -206,11 +193,17 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Native Application.all" />
       <item itemvalue="Native Application.fclean" />
       <item itemvalue="Native Application.fdf" />
       <item itemvalue="Native Application.re" />
+      <item itemvalue="Native Application.;" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -234,6 +227,8 @@
       <workItem from="1738114172200" duration="2507000" />
       <workItem from="1738188183729" duration="6323000" />
       <workItem from="1738243453680" duration="46122000" />
+      <workItem from="1738350516279" duration="4529000" />
+      <workItem from="1738357239206" duration="4987000" />
     </task>
     <servers />
   </component>

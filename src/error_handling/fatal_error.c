@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:29:05 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/12/31 01:07:17 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/31 21:53:20 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void fatal_error(const char *msg)
+void	fatal_error(const char *msg)
 {
 	if (msg)
 		ft_printf_fd(STDERR, "%s", msg);

@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 22:31:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2024/12/28 23:00:05 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/31 21:54:02 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_on_error(t_fdf *fdf, const char *error_message)
 		if (fdf->map)
 			free_map(fdf->map);
 		if (fdf->win)
-                {
+		{
 			mlx_destroy_window(fdf->mlx, fdf->win);
 			fdf->win = NULL;
 		}

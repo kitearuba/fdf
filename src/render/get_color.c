@@ -6,30 +6,27 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/30 23:45:29 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/01/31 22:34:28 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fdf.h"
 
-int get_color(int z, int min_z, int max_z)
+int	get_color(int z, int min_z, int max_z)
 {
-  float ratio;
-  int red, green, blue;
+	float	ratio;
+	int		red;
+	int		green;
+	int		blue;
 
-  if (max_z == min_z)
-    return (0xFFFFFF); // Default white if flat map
-
-  ratio = (float)(z - min_z) / (max_z - min_z); // Normalize z between 0 and 1
-
-  red = (int)(255 * ratio);  // More red for higher altitude
-  green = (int)(255 * (1 - ratio)); // Less green as altitude increases
-  blue = 255; // Keep blue constant
-
-  return ((red << 16) | (green << 8) | blue); // Combine RGB
+	if (max_z == min_z)
+		return (0xFFFFFF);
+	ratio = (float)(z - min_z) / (max_z - min_z);
+	red = (int)(255 * ratio);
+	green = (int)(255 * (1 - ratio));
+	blue = 255;
+	return ((red << 16) | (green << 8) | blue);
 }
-
-
 /*
 int get_color(int z)
 {
