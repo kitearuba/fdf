@@ -66,6 +66,7 @@ typedef struct s_fdf
     int     key_pressed[KEY_COUNT];
     int     min_z;
     int     max_z;
+    int     projections;
     float   zoom;
     float   rotation_y;
     float   rotation_x;
