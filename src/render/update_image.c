@@ -73,7 +73,8 @@ static void	update_rotation(t_fdf *fdf, int *updated)
     *updated = 1;
   }
 }
-static void	update_projection(t_fdf *fdf)
+
+static void	update_projection(t_fdf *fdf, int *updated)
 {
   if (fdf->key_pressed[11])
   {
@@ -81,6 +82,7 @@ static void	update_projection(t_fdf *fdf)
       fdf->projections = 1;
     else
       fdf->projections = 0;
+    *updated = 1;
   }
 }
 
@@ -91,7 +93,7 @@ int	update_frame(t_fdf *fdf)
   updated = 0;
   if (fdf->key_pressed[0])
     handle_exit(fdf);
-  update_projection(fdf);
+  update_projection(fdf, &updated);
   update_movement(fdf, &updated);
   update_zoom(fdf, &updated);
   update_rotation(fdf, &updated);

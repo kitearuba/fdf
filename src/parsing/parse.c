@@ -19,10 +19,11 @@ static int	allocate_map_memory(t_map *map)
 	map->data = (int **)malloc(map->height * sizeof(int *));
 	if (!map->data)
 		return (0);
+
 	i = 0;
 	while (i < map->height)
 	{
-		map->data[i] = (int *)malloc(map->width * sizeof(int));
+		map->data[i] = (int *)malloc(map->width * sizeof(int));  // Allocate max width
 		if (!map->data[i])
 		{
 			free_map(map);

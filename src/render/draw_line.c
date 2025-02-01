@@ -12,6 +12,14 @@
 
 #include "../../include/fdf.h"
 
+static int	interpolate_color(int start_color, int end_color, float t)
+{
+	int	r = ((start_color >> 16) & 0xFF) * (1 - t) + ((end_color >> 16) & 0xFF) * t;
+	int	g = ((start_color >> 8) & 0xFF) * (1 - t) + ((end_color >> 8) & 0xFF) * t;
+	int	b = (start_color & 0xFF) * (1 - t) + (end_color & 0xFF) * t;
+	return ((r << 16) | (g << 8) | b);
+}
+
 static void	put_pixel_to_image(t_fdf *fdf, int x, int y, int color)
 {
   char	*dst;
@@ -24,6 +32,42 @@ static void	put_pixel_to_image(t_fdf *fdf, int x, int y, int color)
   }
 }
 
+static void	draw_line(t_fdf *fdf, t_point p1, t_point p2)
+{
+	t_line	line;
+	float	t;
+	int		steps;
+
+	line.dx = abs(p2.x - p1.x);
+	line.dy = abs(p2.y - p1.y);
+	line.sx = (p1.x < p2.x) ? 1 : -1;
+	line.sy = (p1.y < p2.y) ? 1 : -1;
+	line.err = line.dx - line.dy;
+	line.color1 = get_color(p1.z, fdf->min_z, fdf->max_z);
+	line.color2 = get_color(p2.z, fdf->min_z, fdf->max_z);
+
+	steps = (line.dx > line.dy) ? line.dx : line.dy; // Number of pixels to draw
+	t = 0;
+	while (p1.x != p2.x || p1.y != p2.y)
+	{
+		int pixel_color = interpolate_color(line.color1, line.color2, t / steps);
+		put_pixel_to_image(fdf, p1.x, p1.y, pixel_color);
+		t++;
+
+		line.e2 = 2 * line.err;
+		if (line.e2 > -line.dy)
+		{
+			line.err -= line.dy;
+			p1.x += line.sx;
+		}
+		if (line.e2 < line.dx)
+		{
+			line.err += line.dx;
+			p1.y += line.sy;
+		}
+	}
+}
+/*
 static void	draw_line(t_fdf *fdf, t_point p1, t_point p2)
 {
   t_line	line;
@@ -58,6 +102,7 @@ static void	draw_line(t_fdf *fdf, t_point p1, t_point p2)
     }
   }
 }
+*/
 
 void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2, int thickness)
 {
@@ -65,8 +110,8 @@ void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2, int thickness)
   t_point	new_p1;
   t_point	new_p2;
 
-  offset = -thickness / 2;
-  while (offset <= thickness / 2)
+  offset = -thickness / 10;
+  while (offset <= thickness / 10)
   {
     new_p1 = p1;
     new_p2 = p2;

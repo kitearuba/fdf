@@ -14,48 +14,24 @@
 
 void	find_min_max_z(t_fdf *fdf)
 {
-	int	i;
-	int	j;
+	int	y;
+	int	x;
 
-	i = 0;
-	j = 0;
-	fdf->min_z = fdf->map->data[0][0];
-	fdf->max_z = fdf->map->data[0][0];
-	while (i < fdf->map->height)
+	y = 0;
+	fdf->min_z = MAX_INT;
+	fdf->max_z = MIN_INT;
+	while (y < fdf->map->height)
 	{
-		while (j < fdf->map->width)
+		x = 0;
+		while (x < fdf->map->width)
 		{
-			if (fdf->map->data[i][j] < fdf->min_z)
-				fdf->min_z = fdf->map->data[i][j];
-			if (fdf->map->data[i][j] > fdf->max_z)
-				fdf->max_z = fdf->map->data[i][j];
-			j++;
+			int z = fdf->map->data[y][x];
+			if (z < fdf->min_z)
+				fdf->min_z = z;
+			if (z > fdf->max_z)
+				fdf->max_z = z;
+			x++;
 		}
-		i++;
+		y++;
 	}
 }
-
-/*
-void find_min_max_z(t_fdf *fdf)
-{
-  int x, y;
-
-  fdf->min_z = fdf->map->data[0][0];
-  fdf->max_z = fdf->map->data[0][0];
-
-  y = 0;
-  while (y < fdf->map->height)
-  {
-    x = 0;
-    while (x < fdf->map->width)
-    {
-      if (fdf->map->data[y][x] < fdf->min_z)
-        fdf->min_z = fdf->map->data[y][x];
-      if (fdf->map->data[y][x] > fdf->max_z)
-        fdf->max_z = fdf->map->data[y][x];
-      x++;
-    }
-    y++;
-  }
-}
-*/

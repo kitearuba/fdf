@@ -25,6 +25,18 @@ static void	apply_rotation_y(t_fdf *fdf, t_rotation *rot, int x)
   rot->tmp_x = x * cos(rot->rad_y) + rot->tmp_z * sin(rot->rad_y);
 }
 
+t_point project_parallel(t_fdf *fdf, int x, int y, int z)
+{
+    t_point p;
+
+    p.x = (x * fdf->zoom) + fdf->offset_x;
+    p.y = (y * fdf->zoom) - (z * fdf->zoom / 10) + fdf->offset_y;
+    p.z = z;
+    p.color = get_color(z, fdf->min_z, fdf->max_z);
+
+    return p;
+}
+
 t_point	project_isometric(t_fdf *fdf, int x, int y, int z)
 {
   t_point		p;
@@ -57,11 +69,12 @@ t_point project_point(t_fdf *fdf, int x, int y, int z)
     p.x = (tmp_x - y) * cos(0.523599) * fdf->zoom + fdf->offset_x;
     p.y = (tmp_x + y) * sin(0.523599) * fdf->zoom - (z * fdf->zoom / 10) + fdf->offset_y;
   }
-  else // Parallel (Orthographic) projection
+  else
   {
     p.x = (x * fdf->zoom) + fdf->offset_x;
     p.y = (y * fdf->zoom) - (z * fdf->zoom / 10) + fdf->offset_y;
   }
+  p.z = z;
   p.color = get_color(z, fdf->min_z, fdf->max_z);
-  return p;
+  return (p);
 }

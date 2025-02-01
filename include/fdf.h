@@ -121,6 +121,7 @@ void	set_fixed_zoom(t_fdf *fdf, t_map *map);
 void	set_offset(t_fdf *fdf, t_map *map);
 void	render_fdf(t_fdf *fdf);
 t_point	project_isometric(t_fdf *fdf, int x, int y, int z);
+t_point project_parallel(t_fdf *fdf, int x, int y, int z);
 void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2, int thickness);
 int		handle_key_press(int key, t_fdf *fdf);
 int		handle_key_release(int key, t_fdf *fdf);

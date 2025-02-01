@@ -19,23 +19,15 @@ int	get_color(int z, int min_z, int max_z)
 	int		green;
 	int		blue;
 
-	if (max_z == min_z)
+	if (max_z == min_z)  // Edge case where all values are the same
 		return (0xFFFFFF);
 	ratio = (float)(z - min_z) / (max_z - min_z);
+	if (ratio < 0.0)
+		ratio = 0.0;
+	if (ratio > 1.0)
+		ratio = 1.0;
 	red = (int)(255 * ratio);
 	green = (int)(255 * (1 - ratio));
 	blue = 255;
 	return ((red << 16) | (green << 8) | blue);
 }
-/*
-int get_color(int z)
-{
-  if (z > 10)
-    return (0xFF0000); // Red for high points
-  else if (z > 5)
-    return (0xFFFF00); // Yellow for medium points
-  else if (z > 0)
-    return (0x00FF00); // Green for lower points
-  return (0x0000FF); // Blue for base level
-}
-*/

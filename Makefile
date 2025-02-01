@@ -58,7 +58,7 @@ SRC 		:= $(SRC_DIR)/core/main.c \
                $(SRC_DIR)/render/init_fdf.c \
                $(SRC_DIR)/render/set_window.c \
                $(SRC_DIR)/render/render.c \
-               $(SRC_DIR)/render/isometric.c \
+               $(SRC_DIR)/render/projections.c \
                $(SRC_DIR)/render/draw_line.c \
                $(SRC_DIR)/render/handle_keys.c \
                $(SRC_DIR)/render/update_image.c \
