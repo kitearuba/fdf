@@ -12,7 +12,7 @@
 
 #include "../../include/fdf.h"
 
-int	get_key_index(int key)
+static int	get_key_index(int key)
 {
 	if (key == 65307)
 		return (0);
@@ -36,6 +36,8 @@ int	get_key_index(int key)
 		return (9);
 	if (key == 'd')
 		return (10);
+	if (key == 'p')
+		return (11);
 	return (-1);
 }
 
@@ -56,67 +58,5 @@ int	handle_key_release(int key, t_fdf *fdf)
 	index = get_key_index(key);
 	if (index >= 0 && index < KEY_COUNT)
 		fdf->key_pressed[index] = 0;
-	return (0);
-}
-
-int	update_frame(t_fdf *fdf)
-{
-	int	updated;
-
-	updated = 0;
-	if (fdf->key_pressed[0])
-		handle_exit(fdf);
-	if (fdf->key_pressed[1])
-	{
-		fdf->offset_x -= 2;
-		updated = 1;
-	}
-	if (fdf->key_pressed[2])
-	{
-		fdf->offset_x += 2;
-		updated = 1;
-	}
-	if (fdf->key_pressed[3])
-	{
-		fdf->offset_y -= 2;
-		updated = 1;
-	}
-	if (fdf->key_pressed[4])
-	{
-		fdf->offset_y += 2;
-		updated = 1;
-	}
-	if (fdf->key_pressed[5])
-	{
-		fdf->zoom += 0.2;
-		updated = 1;
-	}
-	if (fdf->key_pressed[6])
-	{
-		fdf->zoom -= 0.2;
-		updated = 1;
-	}
-	if (fdf->key_pressed[7])
-	{
-		fdf->rotation_x += 1;
-		updated = 1;
-	}
-	if (fdf->key_pressed[8])
-	{
-		fdf->rotation_x -= 1;
-		updated = 1;
-	}
-	if (fdf->key_pressed[9])
-	{
-		fdf->rotation_y -= 1;
-		updated = 1;
-	}
-	if (fdf->key_pressed[10])
-	{
-		fdf->rotation_y += 1;
-		updated = 1;
-	}
-	if (updated)
-		render_fdf(fdf);
 	return (0);
 }

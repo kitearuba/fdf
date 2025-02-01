@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/31 21:45:25 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/01 03:45:25 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,35 @@ typedef struct s_point
 	int		color;
 }	t_point;
 
+typedef struct s_line
+{
+	int		dx;
+	int		dy;
+	int		sx;
+	int		sy;
+	int		err;
+	int		e2;
+	int		color1;
+	int		color2;
+}				t_line;
+
+typedef struct s_rotation
+{
+	float	rad_x;
+	float	rad_y;
+	float	tmp_x;
+	float	tmp_y;
+	float	tmp_z;
+}	t_rotation;
+
 /* ************************************************************************** */
 /*                           Function Prototypes                              */
 /* ************************************************************************** */
 
 /* Parse */
 int		parse_map(const char *filename, t_map *map);
+int	validate_dimensions(const char *line, t_map *map);
+int	parse_rows(int fd, t_map *map, int *row);
 int		parse_strict_atoi(const char *str, char **args);
 
 /* Error */
@@ -93,9 +116,18 @@ void	fatal_error(const char *msg);
 
 /* Rendering */
 t_fdf	*init_fdf(t_map *map);
+void	set_window_size(t_fdf *fdf);
+void	set_fixed_zoom(t_fdf *fdf, t_map *map);
+void	set_offset(t_fdf *fdf, t_map *map);
 void	render_fdf(t_fdf *fdf);
+t_point	project_isometric(t_fdf *fdf, int x, int y, int z);
+void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2, int thickness);
 int		handle_key_press(int key, t_fdf *fdf);
 int		handle_key_release(int key, t_fdf *fdf);
+//void	update_movement(t_fdf *fdf, int *updated);
+//void	update_zoom(t_fdf *fdf, int *updated);
+//void	update_rotation(t_fdf *fdf, int *updated);
+int	update_frame(t_fdf *fdf);
 //int		get_color(int z);
 int		get_color(int z, int min_z, int max_z);
 int		update_frame(t_fdf *fdf);
@@ -106,5 +138,6 @@ void	free_fdf(t_fdf *fdf);
 void	free_2d_array(char **arr);
 int		handle_exit(t_fdf *fdf);
 void	find_min_max_z(t_fdf *fdf);
+int	handle_exit(t_fdf *fdf);
 
 #endif //FDF_H

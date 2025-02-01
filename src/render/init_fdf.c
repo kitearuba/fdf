@@ -12,42 +12,6 @@
 
 #include "../../include/fdf.h"
 
-int	handle_exit(t_fdf *fdf)
-{
-	free_fdf(fdf);
-	exit(0);
-	return (0);
-}
-
-static void	set_window_size(t_fdf *fdf)
-{
-	fdf->win_width = 1080;
-	fdf->win_height = 800;
-}
-
-static void	set_fixed_zoom(t_fdf *fdf, t_map *map)
-{
-	int	max_size;
-
-	max_size = map->width > map->height ? map->width : map->height;
-	fdf->zoom = 20;
-	if (max_size > 50)
-		fdf->zoom = 10;
-	if (max_size > 100)
-		fdf->zoom = 5;
-}
-
-static void	set_offset(t_fdf *fdf, t_map *map)
-{
-	int	center_x;
-	int	center_y;
-
-	center_x = ((map->width - 1) - (map->height - 1)) * fdf->zoom / 2;
-	center_y = ((map->width - 1) + (map->height - 1)) * fdf->zoom / 4;
-	fdf->offset_x = fdf->win_width / 2 - center_x;
-	fdf->offset_y = fdf->win_height / 2 - center_y;
-}
-
 static void	init_mlx_window(t_fdf *fdf)
 {
 	fdf->mlx = mlx_init();

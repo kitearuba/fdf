@@ -34,28 +34,6 @@ static int	allocate_map_memory(t_map *map)
 	return (1);
 }
 
-static int	validate_dimensions(const char *line, t_map *map)
-{
-	char	**tokens;
-	int		col;
-
-	tokens = ft_split(line, ' ');
-	if (!tokens)
-		return (0);
-	col = 0;
-	while (tokens[col])
-		col++;
-	if (map->width == 0)
-		map->width = col;
-	else if (col != map->width)
-	{
-		free_2d_array(tokens);
-		return (0);
-	}
-	free_2d_array(tokens);
-	return (1);
-}
-
 static int	count_dimensions(const char *filename, t_map *map)
 {
 	int		fd;
@@ -66,7 +44,8 @@ static int	count_dimensions(const char *filename, t_map *map)
 		return (0);
 	map->height = 0;
 	map->width = 0;
-	while ((line = get_next_line(fd)) != NULL)
+	line = get_next_line(fd);
+	while (line)
 	{
 		if (!validate_dimensions(line, map))
 		{
@@ -77,44 +56,24 @@ static int	count_dimensions(const char *filename, t_map *map)
 		}
 		map->height++;
 		free(line);
+		line = get_next_line(fd);
 	}
 	close(fd);
 	return (1);
 }
-
 static int	parse_values(const char *filename, t_map *map)
 {
-	int		fd;
-	char	*line;
-	char	**tokens;
-	int		row;
-	int		col;
-	char	*trimmed;
+	int	fd;
+	int	row;
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
 	row = 0;
-	while ((line = get_next_line(fd)) != NULL)
+	if (!parse_rows(fd, map, &row))
 	{
-		tokens = ft_split(line, ' ');
-		if (!tokens)
-		{
-			free(line);
-			close(fd);
-			return (0);
-		}
-		col = 0;
-		while (tokens[col])
-		{
-			trimmed = ft_strtrim(tokens[col], "\n");
-			map->data[row][col] = parse_strict_atoi(trimmed, tokens);
-			free(trimmed);
-			col++;
-		}
-		row++;
-		free(line);
-		free_2d_array(tokens);
+		close(fd);
+		return (0);
 	}
 	close(fd);
 	return (1);

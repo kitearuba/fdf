@@ -46,6 +46,7 @@ DEPS 			= $(HEADER) $(MAKEFILE) $(LIBFT_MAKEFILE) $(LIBFT_SRCS) $(LIBFT_H)
 # **************************************************************************** #
 SRC 		:= $(SRC_DIR)/core/main.c \
                $(SRC_DIR)/parsing/parse.c \
+               $(SRC_DIR)/parsing/parse_utils.c \
                $(SRC_DIR)/parsing/parse_strict_atoi.c \
                $(SRC_DIR)/error_handling/fatal_error.c \
                $(SRC_DIR)/error_handling/free_on_error.c \
@@ -53,9 +54,14 @@ SRC 		:= $(SRC_DIR)/core/main.c \
                $(SRC_DIR)/utils/free_map.c \
                $(SRC_DIR)/utils/free_fdf.c \
                $(SRC_DIR)/utils/find_min_max_z.c \
+               $(SRC_DIR)/utils/handle_exit.c \
                $(SRC_DIR)/render/init_fdf.c \
+               $(SRC_DIR)/render/set_window.c \
                $(SRC_DIR)/render/render.c \
+               $(SRC_DIR)/render/isometric.c \
+               $(SRC_DIR)/render/draw_line.c \
                $(SRC_DIR)/render/handle_keys.c \
+               $(SRC_DIR)/render/update_image.c \
                $(SRC_DIR)/render/get_color.c \
 
 # Object files
