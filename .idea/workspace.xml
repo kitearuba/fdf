@@ -29,22 +29,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efaa287-e87c-437f-8995-70c195d84775" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/irregular_grid.fdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/single_row.fdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/42.fdf" beforeDir="false" afterPath="$PROJECT_DIR$/42.fdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/fdf.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fdf.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/parse.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/parse_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse_utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/draw_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/draw_line.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/get_color.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/get_color.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/projections.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/projections.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/render.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/render.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/update_image.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/update_image.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/find_min_max_z.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/find_min_max_z.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,16 +166,11 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Native Application.all" />
       <item itemvalue="Native Application.fclean" />
-      <item itemvalue="Native Application.re" />
       <item itemvalue="Native Application.fdf" />
+      <item itemvalue="Native Application.re" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -218,6 +198,7 @@
       <workItem from="1738368272598" duration="21322000" />
       <workItem from="1738425908942" duration="7822000" />
       <workItem from="1738445045305" duration="7147000" />
+      <workItem from="1738504177825" duration="477000" />
     </task>
     <servers />
   </component>
