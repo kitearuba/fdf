@@ -6,30 +6,39 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/31 22:27:34 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/02 23:11:13 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fdf.h"
+
+static int	allocate_row_memory(t_map *map, int i)
+{
+	map->data[i] = (int *)malloc(map->width * sizeof(int));
+	map->colors[i] = (int *)malloc(map->width * sizeof(int));
+	if (!map->data[i] || !map->colors[i])
+	{
+		free_map(map);
+		return (0);
+	}
+	ft_memset(map->data[i], 0, map->width * sizeof(int));
+	ft_memset(map->colors[i], DEFAULT_COLOR, map->width * sizeof(int));
+	return (1);
+}
 
 static int	allocate_map_memory(t_map *map)
 {
 	int	i;
 
 	map->data = (int **)malloc(map->height * sizeof(int *));
-	if (!map->data)
+	map->colors = (int **)malloc(map->height * sizeof(int *));
+	if (!map->data || !map->colors)
 		return (0);
-
 	i = 0;
 	while (i < map->height)
 	{
-		map->data[i] = (int *)malloc(map->width * sizeof(int));  // Allocate max width
-		if (!map->data[i])
-		{
-			free_map(map);
+		if (!allocate_row_memory(map, i))
 			return (0);
-		}
-		ft_memset(map->data[i], 0, map->width * sizeof(int));
 		i++;
 	}
 	return (1);
@@ -62,6 +71,7 @@ static int	count_dimensions(const char *filename, t_map *map)
 	close(fd);
 	return (1);
 }
+
 static int	parse_values(const char *filename, t_map *map)
 {
 	int	fd;

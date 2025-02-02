@@ -29,13 +29,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efaa287-e87c-437f-8995-70c195d84775" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/minilibx-linux" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/src/ft_atoi_base.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/fdf.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fdf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/libft/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/include/libft.h" beforeDir="false" afterPath="$PROJECT_DIR$/libft/include/libft.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/src/.ft_line_counter.c.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/src/.ft_word_counter.c.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parsing/parse.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parsing/parse_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse_utils.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/render/draw_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/draw_line.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/handle_keys.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/handle_keys.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/render.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/render.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/get_color.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/get_color.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/render/update_image.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/update_image.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -231,7 +236,7 @@
       <workItem from="1738425908942" duration="7822000" />
       <workItem from="1738445045305" duration="7147000" />
       <workItem from="1738504177825" duration="477000" />
-      <workItem from="1738523376681" duration="2383000" />
+      <workItem from="1738523376681" duration="10992000" />
     </task>
     <servers />
   </component>

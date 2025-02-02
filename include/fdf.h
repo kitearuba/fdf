@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/01 03:45:25 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/02 23:03:20 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,18 @@
 /* ************************************************************************** */
 
 # define STDERR 2
-# define ESC_KEY 65307 // Keycode for the ESC key
+# define ESC_KEY 65307
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
 # define KEY_COUNT 20
+# define DEFAULT_COLOR 0xFFFFFF
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 
 typedef struct s_map
 {
 	int		**data;
+	int		**colors;
 	int		height;
 	int		width;
 }	t_map;
@@ -65,7 +67,7 @@ typedef struct s_fdf
 	int		min_z;
 	int		max_z;
 	int		projections;
-        int             line_thickness;
+	int		line_thickness;
 	float	zoom;
 	float	rotation_y;
 	float	rotation_x;
@@ -107,8 +109,8 @@ typedef struct s_rotation
 
 /* Parse */
 int		parse_map(const char *filename, t_map *map);
-int	validate_dimensions(const char *line, t_map *map);
-int	parse_rows(int fd, t_map *map, int *row);
+int		validate_dimensions(const char *line, t_map *map);
+int		parse_rows(int fd, t_map *map, int *row);
 int		parse_strict_atoi(const char *str, char **args);
 
 /* Error */
@@ -122,15 +124,11 @@ void	set_fixed_zoom(t_fdf *fdf, t_map *map);
 void	set_offset(t_fdf *fdf, t_map *map);
 void	render_fdf(t_fdf *fdf);
 t_point	project_isometric(t_fdf *fdf, int x, int y, int z);
-t_point project_parallel(t_fdf *fdf, int x, int y, int z);
+t_point	project_parallel(t_fdf *fdf, int x, int y, int z);
 void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2);
 int		handle_key_press(int key, t_fdf *fdf);
 int		handle_key_release(int key, t_fdf *fdf);
-//void	update_movement(t_fdf *fdf, int *updated);
-//void	update_zoom(t_fdf *fdf, int *updated);
-//void	update_rotation(t_fdf *fdf, int *updated);
-int	update_frame(t_fdf *fdf);
-//int		get_color(int z);
+int		update_frame(t_fdf *fdf);
 int		get_color(int z, int min_z, int max_z);
 int		update_frame(t_fdf *fdf);
 
@@ -140,6 +138,6 @@ void	free_fdf(t_fdf *fdf);
 void	free_2d_array(char **arr);
 int		handle_exit(t_fdf *fdf);
 void	find_min_max_z(t_fdf *fdf);
-int	handle_exit(t_fdf *fdf);
+int		handle_exit(t_fdf *fdf);
 
 #endif //FDF_H

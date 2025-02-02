@@ -6,73 +6,67 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/31 22:27:34 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/02 23:22:34 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fdf.h"
 
-int	validate_dimensions(const char *line, t_map *map)
+static void	fill_map_values(char **split_value, t_map *map, int row, int col)
 {
-  char	**tokens;
-  int		col_count;
+	if (split_value[0])
+		map->data[row][col] = parse_strict_atoi(split_value[0], split_value);
+	if (split_value[1])
+		map->colors[row][col] = ft_atoi_base(split_value[1], 16);
+	else
+		map->colors[row][col] = DEFAULT_COLOR;
+}
 
-  if (!line || !*line)
-  {
-    ft_printf_fd(STDERR, "Invalid input detected (empty string)\n");
-    return (0);
-  }
-  tokens = ft_split(line, ' ');
-  if (!tokens)
-  {
-    ft_printf_fd(STDERR, "Error: ft_split failed on line: %s\n", line);
-    return (0);
-  }
-  col_count = 0;
-  while (tokens[col_count])
-  {
-    if (!ft_isdigit(tokens[col_count][0]) && tokens[col_count][0] != '-')
-    {
-      ft_printf_fd(STDERR, "Error: Non-numeric value found: %s\n", tokens[col_count]);
-      free_2d_array(tokens);
-      return (0);
-    }
-    col_count++;
-  }
-  if (col_count > map->width)
-    map->width = col_count;
-  free_2d_array(tokens);
-  return (1);
+static int	process_tokens(char **tokens, t_map *map, int row)
+{
+	int		col;
+	char	*trimmed;
+	char	**split_value;
+
+	col = 0;
+	while (tokens[col] && col < map->width)
+	{
+		trimmed = ft_strtrim(tokens[col], "\n");
+		split_value = ft_split(trimmed, ',');
+		free(trimmed);
+		fill_map_values(split_value, map, row, col);
+		free_2d_array(split_value);
+		col++;
+	}
+	while (col < map->width)
+	{
+		map->data[row][col] = 0;
+		map->colors[row][col] = DEFAULT_COLOR;
+		col++;
+	}
+	return (1);
 }
 
 int	parse_rows(int fd, t_map *map, int *row)
 {
-  char	*line;
-  char	**tokens;
-  int		col;
-  char	*trimmed;
+	char	*line;
+	char	**tokens;
 
-  line = get_next_line(fd);
-  while (line)
-  {
-    tokens = ft_split(line, ' ');
-    free(line);
-    if (!tokens)
-      return (0);
-    col = 0;
-    while (tokens[col] && col < map->width)
-    {
-      trimmed = ft_strtrim(tokens[col], "\n");
-      map->data[*row][col] = parse_strict_atoi(trimmed, tokens);
-      free(trimmed);
-      col++;
-    }
-    while (col < map->width)
-      map->data[*row][col++] = 0;
-
-    free_2d_array(tokens);
-    (*row)++;
-    line = get_next_line(fd);
-  }
-  return (1);
+	line = get_next_line(fd);
+	while (line)
+	{
+		tokens = ft_split(line, ' ');
+		free(line);
+		if (!tokens)
+			return (0);
+		if (!process_tokens(tokens, map, *row))
+		{
+			free_2d_array(tokens);
+			return (0);
+		}
+		free_2d_array(tokens);
+		(*row)++;
+		line = get_next_line(fd);
+	}
+	return (1);
 }

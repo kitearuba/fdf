@@ -111,5 +111,6 @@ int	update_frame(t_fdf *fdf)
   update_rotation(fdf, &updated);
   if (updated)
     render_fdf(fdf);
+  mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img.img, 0, 0);
   return (0);
 }

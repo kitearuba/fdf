@@ -6,7 +6,7 @@
 #    By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 21:23:07 by chrrodri          #+#    #+#              #
-#    Updated: 2025/01/18 19:49:42 by chrrodri         ###   ########.fr        #
+#    Updated: 2025/02/02 23:29:43 by chrrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRC 		:= $(SRC_DIR)/core/main.c \
                $(SRC_DIR)/parsing/parse.c \
                $(SRC_DIR)/parsing/parse_utils.c \
                $(SRC_DIR)/parsing/parse_strict_atoi.c \
+               $(SRC_DIR)/parsing/validate_dimensions.c \
                $(SRC_DIR)/error_handling/fatal_error.c \
                $(SRC_DIR)/error_handling/free_on_error.c \
                $(SRC_DIR)/utils/free_2d_array.c \
