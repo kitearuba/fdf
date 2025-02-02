@@ -27,7 +27,7 @@ static void	draw_horizontal_line(t_fdf *fdf, int x, int y)
 		p1 = project_parallel(fdf, x, y, fdf->map->data[y][x]);
 		p2 = project_parallel(fdf, x + 1, y, fdf->map->data[y][x + 1]);
 	}
-	draw_thick_line(fdf, p1, p2, 8);
+	draw_thick_line(fdf, p1, p2);
 }
 
 static void	draw_vertical_line(t_fdf *fdf, int x, int y)
@@ -45,7 +45,7 @@ static void	draw_vertical_line(t_fdf *fdf, int x, int y)
 		p1 = project_parallel(fdf, x, y, fdf->map->data[y][x]);
 		p2 = project_parallel(fdf, x, y + 1, fdf->map->data[y + 1][x]);
 	}
-	draw_thick_line(fdf, p1, p2, 3);
+	draw_thick_line(fdf, p1, p2);
 }
 
 static void	render_map(t_fdf *fdf)
@@ -74,5 +74,4 @@ void	render_fdf(t_fdf *fdf)
 	ft_memset(fdf->img.addr, 0, fdf->win_height * fdf->img.line_length);
 	render_map(fdf);
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img.img, 0, 0);
-	mlx_loop(fdf->mlx);
 }

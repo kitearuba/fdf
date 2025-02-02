@@ -34,10 +34,14 @@ static int	get_key_index(int key)
 		return (8);
 	if (key == 'a')
 		return (9);
-	if (key == 'd')
+	if (key == 's')
 		return (10);
 	if (key == 'p')
 		return (11);
+        if (key == 't')
+                return (12);
+        if (key == 'y')
+                return (13);
 	return (-1);
 }
 

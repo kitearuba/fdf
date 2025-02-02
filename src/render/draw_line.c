@@ -104,14 +104,14 @@ static void	draw_line(t_fdf *fdf, t_point p1, t_point p2)
 }
 */
 
-void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2, int thickness)
+void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2)
 {
   int		offset;
   t_point	new_p1;
   t_point	new_p2;
 
-  offset = -thickness / 10;
-  while (offset <= thickness / 10)
+  offset = -fdf->line_thickness / 10;
+  while (offset <= fdf->line_thickness / 10)
   {
     new_p1 = p1;
     new_p2 = p2;

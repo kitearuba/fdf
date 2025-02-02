@@ -65,6 +65,7 @@ typedef struct s_fdf
 	int		min_z;
 	int		max_z;
 	int		projections;
+        int             line_thickness;
 	float	zoom;
 	float	rotation_y;
 	float	rotation_x;
@@ -122,7 +123,7 @@ void	set_offset(t_fdf *fdf, t_map *map);
 void	render_fdf(t_fdf *fdf);
 t_point	project_isometric(t_fdf *fdf, int x, int y, int z);
 t_point project_parallel(t_fdf *fdf, int x, int y, int z);
-void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2, int thickness);
+void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2);
 int		handle_key_press(int key, t_fdf *fdf);
 int		handle_key_release(int key, t_fdf *fdf);
 //void	update_movement(t_fdf *fdf, int *updated);

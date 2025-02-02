@@ -74,7 +74,7 @@ static void	update_rotation(t_fdf *fdf, int *updated)
   }
 }
 
-static void	update_projection(t_fdf *fdf, int *updated)
+static void	update_projection_or_thickness(t_fdf *fdf, int *updated)
 {
   if (fdf->key_pressed[11])
   {
@@ -82,6 +82,18 @@ static void	update_projection(t_fdf *fdf, int *updated)
       fdf->projections = 1;
     else
       fdf->projections = 0;
+    *updated = 1;
+  }
+  if (fdf->key_pressed[12])
+  {
+    if (fdf->line_thickness < 30)
+      fdf->line_thickness += 1;
+    *updated = 1;
+  }
+  if (fdf->key_pressed[13])
+  {
+    if (fdf->line_thickness > 1)
+      fdf->line_thickness -= 1;
     *updated = 1;
   }
 }
@@ -93,7 +105,7 @@ int	update_frame(t_fdf *fdf)
   updated = 0;
   if (fdf->key_pressed[0])
     handle_exit(fdf);
-  update_projection(fdf, &updated);
+  update_projection_or_thickness(fdf, &updated);
   update_movement(fdf, &updated);
   update_zoom(fdf, &updated);
   update_rotation(fdf, &updated);
