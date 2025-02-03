@@ -22,7 +22,7 @@ static int	allocate_row_memory(t_map *map, int i)
 		return (0);
 	}
 	ft_memset(map->data[i], 0, map->width * sizeof(int));
-	ft_memset(map->colors[i], DEFAULT_COLOR, map->width * sizeof(int));
+	ft_memset(map->colors[i], LIGHT_GREEN, map->width * sizeof(int));
 	return (1);
 }
 

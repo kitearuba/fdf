@@ -53,12 +53,10 @@ t_point	apply_isometric(t_fdf *fdf, int x, int y, int z)
 	t_point		p;
 	t_rotation	rot;
 
-	// Apply all three rotations in order: X → Y → Z
+
 	apply_rotation_x(fdf, &rot, x, y, z);
 	apply_rotation_y(fdf, &rot);
 	apply_rotation_z(fdf, &rot);
-
-	// Apply isometric projection
 	p.x = (rot.final_x - rot.final_y) * cos(0.523599) * fdf->zoom + fdf->offset_x;
 	p.y = (rot.final_x + rot.final_y) * sin(0.523599) * fdf->zoom - (rot.tmp_z * fdf->zoom / 10)
 		+ fdf->offset_y;

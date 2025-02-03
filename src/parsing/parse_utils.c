@@ -19,7 +19,7 @@ static void	fill_map_values(char **split_value, t_map *map, int row, int col)
 	if (split_value[1])
 		map->colors[row][col] =  ft_strtol(split_value[1], NULL, 16);
 	else
-		map->colors[row][col] = DEFAULT_COLOR;
+		map->colors[row][col] = LIGHT_GREEN;
 }
 
 static int	process_tokens(char **tokens, t_map *map, int row)
@@ -41,7 +41,7 @@ static int	process_tokens(char **tokens, t_map *map, int row)
 	while (col < map->width)
 	{
 		map->data[row][col] = 0;
-		map->colors[row][col] = DEFAULT_COLOR;
+		map->colors[row][col] = LIGHT_GREEN;
 		col++;
 	}
 	return (1);
@@ -67,13 +67,6 @@ int	parse_rows(int fd, t_map *map, int *row)
 		free_2d_array(tokens);
 		(*row)++;
 		line = get_next_line(fd);
-	}
-	for (int i = 0; i < map->height; i++)
-	{
-		for (int j = 0; j < map->width; j++)
-		{
-			ft_printf("Color at (%d, %d): %#X\n", i, j, map->colors[i][j]);
-		}
 	}
 	return (1);
 }
