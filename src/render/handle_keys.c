@@ -14,34 +14,17 @@
 
 static int	get_key_index(int key)
 {
-	if (key == 65307)
-		return (0);
-	if (key == 65361)
-		return (1);
-	if (key == 65363)
-		return (2);
-	if (key == 65362)
-		return (3);
-	if (key == 65364)
-		return (4);
-	if (key == 61)
-		return (5);
-	if (key == 45)
-		return (6);
-	if (key == 'q')
-		return (7);
-	if (key == 'w')
-		return (8);
-	if (key == 'a')
-		return (9);
-	if (key == 's')
-		return (10);
-	if (key == 'p')
-		return (11);
-        if (key == 't')
-                return (12);
-        if (key == 'y')
-                return (13);
+	const int	keys[] = {65307, 65361, 65363, 65362, 65364,
+		61, 45, 'q', 'w', 'a', 's', 'p', 't', 'y'};
+	int			i;
+
+	i = 0;
+	while (i < (int)(sizeof(keys) / sizeof(keys[0])))
+	{
+		if (key == keys[i])
+			return (i);
+		i++;
+	}
 	return (-1);
 }
 

@@ -68,5 +68,12 @@ int	parse_rows(int fd, t_map *map, int *row)
 		(*row)++;
 		line = get_next_line(fd);
 	}
+	for (int i = 0; i < map->height; i++)
+	{
+		for (int j = 0; j < map->width; j++)
+		{
+			ft_printf("Color at (%d, %d): %#X\n", i, j, map->colors[i][j]);
+		}
+	}
 	return (1);
 }

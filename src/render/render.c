@@ -18,14 +18,14 @@ static void	draw_horizontal_line(t_fdf *fdf, int x, int y)
 	t_point	p2;
 
 	if (fdf->projections == 0)
-    {
-		p1 = project_isometric(fdf, x, y, fdf->map->data[y][x]);
-		p2 = project_isometric(fdf, x + 1, y, fdf->map->data[y][x + 1]);
-    }
+	{
+		p1 = apply_isometric(fdf, x, y, fdf->map->data[y][x]);
+		p2 = apply_isometric(fdf, x + 1, y, fdf->map->data[y][x + 1]);
+	}
 	else
 	{
-		p1 = project_parallel(fdf, x, y, fdf->map->data[y][x]);
-		p2 = project_parallel(fdf, x + 1, y, fdf->map->data[y][x + 1]);
+		p1 = apply_parallel(fdf, x, y, fdf->map->data[y][x]);
+		p2 = apply_parallel(fdf, x + 1, y, fdf->map->data[y][x + 1]);
 	}
 	draw_thick_line(fdf, p1, p2);
 }
@@ -37,13 +37,13 @@ static void	draw_vertical_line(t_fdf *fdf, int x, int y)
 
 	if (fdf->projections == 0)
 	{
-		p1 = project_isometric(fdf, x, y, fdf->map->data[y][x]);
-		p2 = project_isometric(fdf, x, y + 1, fdf->map->data[y + 1][x]);
+		p1 = apply_isometric(fdf, x, y, fdf->map->data[y][x]);
+		p2 = apply_isometric(fdf, x, y + 1, fdf->map->data[y + 1][x]);
 	}
 	else
 	{
-		p1 = project_parallel(fdf, x, y, fdf->map->data[y][x]);
-		p2 = project_parallel(fdf, x, y + 1, fdf->map->data[y + 1][x]);
+		p1 = apply_parallel(fdf, x, y, fdf->map->data[y][x]);
+		p2 = apply_parallel(fdf, x, y + 1, fdf->map->data[y + 1][x]);
 	}
 	draw_thick_line(fdf, p1, p2);
 }

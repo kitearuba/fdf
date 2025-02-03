@@ -12,23 +12,30 @@
 
 #include "../../include/fdf.h"
 
-int get_color(int z, int min_z, int max_z)
+int	clamp_ratio(float ratio)
 {
-  float ratio;
-  int red, green, blue;
+	if (ratio < 0.0)
+		return (0.0);
+	if (ratio > 1.0)
+		return (1.0);
+	return (ratio);
+}
 
-  if (max_z == min_z)  // Edge case: no variation
-    return 0xFFFFFF;
+int	get_color(int z, int min_z, int max_z)
+{
+	float	ratio;
+	int		red;
+	int		green;
+	int		blue;
 
-  ratio = (float)(z - min_z) / (max_z - min_z);
-  if (ratio < 0.0) ratio = 0.0;
-  if (ratio > 1.0) ratio = 1.0;
-
-  red = (int)(255 * ratio);
-  green = (int)(255 * (1 - ratio));
-  blue = 255; // Fixed blue value
-
-  return ((red << 16) | (green << 8) | blue);
+	if (max_z == min_z)
+		return (DEFAULT_COLOR);
+	ratio = (float)(z - min_z) / (max_z - min_z);
+	ratio = clamp_ratio(ratio);
+	red = (int)(255 * ratio);
+	green = (int)(255 * (1 - ratio));
+	blue = 255;
+	return ((red << 16) | (green << 8) | blue);
 }
 
 /*

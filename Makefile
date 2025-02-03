@@ -56,13 +56,14 @@ SRC 		:= $(SRC_DIR)/core/main.c \
                $(SRC_DIR)/utils/free_fdf.c \
                $(SRC_DIR)/utils/find_min_max_z.c \
                $(SRC_DIR)/utils/handle_exit.c \
-               $(SRC_DIR)/render/init_fdf.c \
-               $(SRC_DIR)/render/set_window.c \
+               $(SRC_DIR)/setup/init_fdf.c \
+               $(SRC_DIR)/setup/init_window.c \
                $(SRC_DIR)/render/render.c \
-               $(SRC_DIR)/render/projections.c \
+               $(SRC_DIR)/render/transform_3d_to_2d.c \
                $(SRC_DIR)/render/draw_line.c \
+               $(SRC_DIR)/render/draw_thick_line.c \
                $(SRC_DIR)/render/handle_keys.c \
-               $(SRC_DIR)/render/update_image.c \
+               $(SRC_DIR)/render/update_frame.c \
                $(SRC_DIR)/render/get_color.c \
 
 # Object files

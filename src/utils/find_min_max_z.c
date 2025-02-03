@@ -16,6 +16,7 @@ void	find_min_max_z(t_fdf *fdf)
 {
 	int	y;
 	int	x;
+	int	z;
 
 	y = 0;
 	fdf->min_z = MAX_INT;
@@ -25,7 +26,7 @@ void	find_min_max_z(t_fdf *fdf)
 		x = 0;
 		while (x < fdf->map->width)
 		{
-			int z = fdf->map->data[y][x];
+			z = fdf->map->data[y][x];
 			if (z < fdf->min_z)
 				fdf->min_z = z;
 			if (z > fdf->max_z)

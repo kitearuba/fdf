@@ -71,8 +71,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 /* Number conversion and memory allocation */
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
-int	ft_atoi_base(const char *str, int base);
-
+int		ft_atoi_base(const char *str, int base);
 
 /* --------------------------- Additional Functions ------------------------- */
 

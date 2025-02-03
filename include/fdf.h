@@ -23,85 +23,7 @@
 # include <math.h>
 # include "../minilibx-linux/mlx.h"
 # include "../libft/include/libft.h"
-
-/* ************************************************************************** */
-/*                                  Macros                                    */
-/* ************************************************************************** */
-
-# define STDERR 2
-# define ESC_KEY 65307
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
-# define KEY_COUNT 20
-# define DEFAULT_COLOR 0xFFFFFF
-# define WIN_WIDTH 1920
-# define WIN_HEIGHT 1080
-
-typedef struct s_map
-{
-	int		**data;
-	int		**colors;
-	int		height;
-	int		width;
-}	t_map;
-
-typedef struct s_img
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_img;
-
-typedef struct s_fdf
-{
-	void	*mlx;
-	void	*win;
-	t_img	img;
-	int		offset_x;
-	int		offset_y;
-	int		win_width;
-	int		win_height;
-	int		key_pressed[KEY_COUNT];
-	int		min_z;
-	int		max_z;
-	int		projections;
-	int		line_thickness;
-	float	zoom;
-	float	rotation_y;
-	float	rotation_x;
-	t_map	*map;
-}	t_fdf;
-
-typedef struct s_point
-{
-	int		x;
-	int		y;
-	int		z;
-	int		color;
-}	t_point;
-
-typedef struct s_line
-{
-	int		dx;
-	int		dy;
-	int		sx;
-	int		sy;
-	int		err;
-	int		e2;
-	int		color1;
-	int		color2;
-}				t_line;
-
-typedef struct s_rotation
-{
-	float	rad_x;
-	float	rad_y;
-	float	tmp_x;
-	float	tmp_y;
-	float	tmp_z;
-}	t_rotation;
+# include "fdf_structs.h"
 
 /* ************************************************************************** */
 /*                           Function Prototypes                              */
@@ -123,8 +45,9 @@ void	set_window_size(t_fdf *fdf);
 void	set_fixed_zoom(t_fdf *fdf, t_map *map);
 void	set_offset(t_fdf *fdf, t_map *map);
 void	render_fdf(t_fdf *fdf);
-t_point	project_isometric(t_fdf *fdf, int x, int y, int z);
-t_point	project_parallel(t_fdf *fdf, int x, int y, int z);
+t_point	apply_isometric(t_fdf *fdf, int x, int y, int z);
+t_point	apply_parallel(t_fdf *fdf, int x, int y, int z);
+void	draw_line(t_fdf *fdf, t_point p1, t_point p2);
 void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2);
 int		handle_key_press(int key, t_fdf *fdf);
 int		handle_key_release(int key, t_fdf *fdf);
