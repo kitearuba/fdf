@@ -49,6 +49,7 @@ typedef struct s_fdf
 	float	zoom;
 	float	rotation_y;
 	float	rotation_x;
+	float	rotation_z;
 	t_map	*map;
 }	t_fdf;
 
@@ -77,9 +78,12 @@ typedef struct s_rotation
 {
 	float	rad_x;
 	float	rad_y;
+	float	rad_z;   // NEW: Radians for Z rotation
 	float	tmp_x;
 	float	tmp_y;
 	float	tmp_z;
+	float	final_x;  // NEW: After Z-axis rotation
+	float	final_y;  // NEW: After Z-axis rotation
 }	t_rotation;
 
 #endif // FDF_STRUCTS_H

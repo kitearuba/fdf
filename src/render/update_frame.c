@@ -35,12 +35,12 @@ static void	update_offset(t_fdf *fdf, int *updated)
 
 static void	update_zoom_rotation(t_fdf *fdf, int *updated)
 {
-	const int	keys[] = {5, 6, 7, 8, 9, 10};
-	const float	changes[] = {0.2, -0.2, 1, -1, -1, 1};
+	const int	keys[] = {5, 6, 7, 8, 9, 10, 11, 12};
+	const float	changes[] = {0.2, -0.2, 1, -1, -1, 1, -1, 1};
 	int			i;
 
 	i = 0;
-	while (i < 6)
+	while (i < 8)
 	{
 		if (fdf->key_pressed[keys[i]])
 		{
@@ -48,8 +48,10 @@ static void	update_zoom_rotation(t_fdf *fdf, int *updated)
 				fdf->zoom += changes[i];
 			else if (i < 4)
 				fdf->rotation_x += changes[i];
-			else
+			else if (i < 6)
 				fdf->rotation_y += changes[i];
+			else
+				fdf->rotation_z += changes[i];
 			*updated = 1;
 		}
 		i++;
@@ -58,17 +60,22 @@ static void	update_zoom_rotation(t_fdf *fdf, int *updated)
 
 static void	update_projection_thickness(t_fdf *fdf, int *updated)
 {
-	if (fdf->key_pressed[11])
+	if (fdf->key_pressed[13])
 	{
-		fdf->projections = !fdf->projections;
+		fdf->projections =  0;
 		*updated = 1;
 	}
-	if (fdf->key_pressed[12] && fdf->line_thickness < 30)
+	if (fdf->key_pressed[14])
+	{
+		fdf->projections = 1;
+		*updated = 1;
+	}
+	if (fdf->key_pressed[15] && fdf->line_thickness < 30)
 	{
 		fdf->line_thickness += 1;
 		*updated = 1;
 	}
-	if (fdf->key_pressed[13] && fdf->line_thickness > 1)
+	if (fdf->key_pressed[16] && fdf->line_thickness > 1)
 	{
 		fdf->line_thickness -= 1;
 		*updated = 1;

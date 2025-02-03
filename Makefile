@@ -99,6 +99,7 @@ LIBFT_SRCS := $(LIBFT_DIR)/$(SRC_DIR)/ft_isalpha.c $(LIBFT_DIR)/$(SRC_DIR)/ft_is
              $(LIBFT_DIR)/$(SRC_DIR)/handle_hex.c $(LIBFT_DIR)/$(SRC_DIR)/handle_percent.c \
              $(LIBFT_DIR)/$(SRC_DIR)/utils.c $(LIBFT_DIR)/$(SRC_DIR)/get_next_line.c \
              $(LIBFT_DIR)/$(SRC_DIR)/get_next_line_bonus.c $(LIBFT_DIR)/$(SRC_DIR)/ft_strappend.c \
+             $(LIBFT_DIR)/$(SRC_DIR)/ft_atoi_base.c $(LIBFT_DIR)/$(SRC_DIR)/ft_strtol.c \
 
 LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 

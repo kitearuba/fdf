@@ -15,7 +15,7 @@
 static int	get_key_index(int key)
 {
 	const int	keys[] = {65307, 65361, 65363, 65362, 65364,
-		61, 45, 'q', 'w', 'a', 's', 'p', 't', 'y'};
+		61, 45, 'q', 'w', 'a', 's', 'z', 'x', 'p', 'o', 't', 'y'};
 	int			i;
 
 	i = 0;
