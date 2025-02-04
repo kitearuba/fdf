@@ -12,6 +12,26 @@
 
 #include "../../include/fdf.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                            :::  FDF Project  :::                           */
+/*                                                                            */
+/*   File: main.c                                                            */
+/*   Description: Entry point of the FDF project.                            */
+/*                                                                            */
+/*   - Validates command-line arguments.                                     */
+/*   - Parses the map from the provided file.                                */
+/*   - Initializes the FDF structure.                                        */
+/*   - Renders the map using MiniLibX.                                       */
+/*   - Starts the MiniLibX event loop.                                       */
+/*   - Frees allocated memory before exiting.                                */
+/*                                                                            */
+/*   @param argc Number of command-line arguments.                           */
+/*   @param argv Array of command-line arguments.                            */
+/*   @return int Program exit status.                                        */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	main(int argc, char **argv)
 {
 	t_map	map;
