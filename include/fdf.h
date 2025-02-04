@@ -52,10 +52,9 @@ void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2);
 int		handle_key_press(int key, t_fdf *fdf);
 int		handle_key_release(int key, t_fdf *fdf);
 int		update_frame(t_fdf *fdf);
-int	get_color(t_fdf *fdf, int z);
-int		update_frame(t_fdf *fdf);
+int		get_color(t_fdf *fdf, int z);
 const int	*get_color_scheme(int index);
-const int	*get_color_scheme(int index);
+void	bresenham_draw(t_fdf *fdf, t_point p1, t_point p2, t_line *line);
 
 /* Utils */
 void	free_map(t_map *map);

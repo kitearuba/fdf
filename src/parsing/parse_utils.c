@@ -14,10 +14,17 @@
 
 static void	fill_map_values(char **split_value, t_map *map, int row, int col)
 {
+	long	value;
+
 	if (split_value[0])
 		map->data[row][col] = parse_strict_atoi(split_value[0], split_value);
 	if (split_value[1])
-		map->colors[row][col] =  ft_strtol(split_value[1], NULL, 16);
+	{
+		value = ft_strtol(split_value[1], &split_value[1], 16);
+		if (value > MAX_INT || value < MIN_INT)
+			value = LIGHT_GREEN;
+		map->colors[row][col] = (int)value;
+	}
 	else
 		map->colors[row][col] = LIGHT_GREEN;
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_line.c                                        :+:      :+:    :+:   */
+/*   bresenham_draw.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -53,24 +53,6 @@ static void	put_pixel_to_image(t_fdf *fdf, int x, int y, int color)
 	}
 }
 
-static void	init_line_struct(t_line *line, t_point p1, t_point p2, t_fdf *fdf)
-{
-	line->dx = abs(p2.x - p1.x);
-	line->dy = abs(p2.y - p1.y);
-	line->sx = -1;
-	line->sy = -1;
-	if (p1.x < p2.x)
-		line->sx = 1;
-	if (p1.y < p2.y)
-		line->sy = 1;
-	line->err = line->dx - line->dy;
-	line->color1 = get_color(fdf, p1.z);
-	line->color2 = get_color(fdf, p2.z);
-	line->steps = line->dx;
-	if (line->dy > line->dx)
-		line->steps = line->dy;
-}
-
 void	bresenham_draw(t_fdf *fdf, t_point p1, t_point p2, t_line *line)
 {
 	int		pixel_color;
@@ -95,12 +77,4 @@ void	bresenham_draw(t_fdf *fdf, t_point p1, t_point p2, t_line *line)
 			p1.y += line->sy;
 		}
 	}
-}
-
-void	draw_line(t_fdf *fdf, t_point p1, t_point p2)
-{
-	t_line	line;
-
-	init_line_struct(&line, p1, p2, fdf);
-	bresenham_draw(fdf, p1, p2, &line);
 }
