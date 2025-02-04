@@ -35,7 +35,8 @@ LIBFT_DIR		= libft
 #                      File Paths and Dependencies                             #
 # **************************************************************************** #
 MAKEFILE 		= Makefile
-HEADER 			= $(INC_DIR)/fdf.h
+HEADER 			= $(INC_DIR)/fdf.h $(INC_DIR)/fdf_macros.h \
+					$(INC_DIR)/fdf_structs.h
 LIBFT_A 		= $(LIBFT_DIR)/libft.a
 LIBFT_H 		= $(LIBFT_DIR)/$(INC_DIR)/libft.h
 LIBFT_MAKEFILE 	= $(LIBFT_DIR)/$(MAKEFILE)
@@ -54,17 +55,15 @@ SRC 		:= $(SRC_DIR)/core/main.c \
                $(SRC_DIR)/utils/free_2d_array.c \
                $(SRC_DIR)/utils/free_map.c \
                $(SRC_DIR)/utils/free_fdf.c \
-               $(SRC_DIR)/utils/find_min_max_z.c \
                $(SRC_DIR)/utils/handle_exit.c \
                $(SRC_DIR)/setup/init_fdf.c \
                $(SRC_DIR)/setup/init_window.c \
                $(SRC_DIR)/render/render.c \
                $(SRC_DIR)/render/transform_3d_to_2d.c \
                $(SRC_DIR)/render/draw_line.c \
-               $(SRC_DIR)/render/draw_thick_line.c \
                $(SRC_DIR)/render/handle_keys.c \
                $(SRC_DIR)/render/update_frame.c \
-               $(SRC_DIR)/render/get_color.c \
+               $(SRC_DIR)/render/bresenham_draw.c
 
 # Object files
 OBJ			= $(SRC:.c=.o)
@@ -110,7 +109,7 @@ LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 # All rule: Compile everything
 all: $(NAME)
 
-# Build push_swap executable
+# Build fdf executable
 $(NAME): $(OBJ) $(LIBFT_A)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_A) $(MLXi) -I$(INC_DIR) -o $(NAME)
 
@@ -127,7 +126,7 @@ clean:
 	rm -f $(OBJ)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
-# Full clean including libft.a, push_swap, and checker executables
+# Full clean including libft.a & fdf executable
 fclean: clean
 	rm -f $(NAME)
 	rm -f $(LIBFT_A)

@@ -6,21 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 02:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/01 03:20:00 by chrrodri         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "../../include/fdf.h"
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   update_frame.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: chrrodri <chrrodri@student.42barcelona.co> +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 02:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/01 03:20:00 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/04 22:55:22 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +58,7 @@ static void	update_zoom_rotation(t_fdf *fdf, int *updated)
 	}
 }
 
-static void	update_projection(t_fdf *fdf, int *updated)
+static void	update_projection_and_l_thickness(t_fdf *fdf, int *updated)
 {
 	if (fdf->key_pressed[13])
 	{
@@ -84,10 +70,6 @@ static void	update_projection(t_fdf *fdf, int *updated)
 		fdf->projections = 1;
 		*updated = 1;
 	}
-}
-
-static void	update_thickness(t_fdf *fdf, int *updated)
-{
 	if (fdf->key_pressed[15] && fdf->line_thickness < 30)
 	{
 		fdf->line_thickness += 1;
@@ -102,22 +84,22 @@ static void	update_thickness(t_fdf *fdf, int *updated)
 
 static void	update_color(t_fdf *fdf, int *updated)
 {
-	const int	*colors;
-
 	if (fdf->key_pressed[17])
 	{
 		fdf->low_color = DEFAULT_COLOR;
 		fdf->high_color = DEFAULT_COLOR;
 		*updated = 1;
 	}
-	if (fdf->key_pressed[18] || fdf->key_pressed[19])
+	if (fdf->key_pressed[18])
 	{
-		fdf->color_index = (fdf->color_index + 1) % NUM_COLOR_SCHEMES;
-		colors = get_color_scheme(fdf->color_index);
-		if (fdf->key_pressed[18])
-			fdf->low_color = colors[0];
-		else
-			fdf->high_color = colors[1];
+		fdf->low_color = PINK;
+		fdf->high_color = MINT_GREEN;
+		*updated = 1;
+	}
+	if (fdf->key_pressed[19])
+	{
+		fdf->low_color = SKY_BLUE;
+		fdf->high_color = RED;
 		*updated = 1;
 	}
 	if (fdf->key_pressed[20])
@@ -135,8 +117,7 @@ int	update_frame(t_fdf *fdf)
 	updated = 0;
 	if (fdf->key_pressed[0])
 		handle_exit(fdf);
-	update_projection(fdf, &updated);
-	update_thickness(fdf, &updated);
+	update_projection_and_l_thickness(fdf, &updated);
 	update_offset(fdf, &updated);
 	update_zoom_rotation(fdf, &updated);
 	update_color(fdf, &updated);

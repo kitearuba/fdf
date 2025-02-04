@@ -6,13 +6,13 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 03:45:25 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/02 23:37:10 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/04 20:55:24 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/fdf.h"
 
-static float clamp_ratio(float ratio)
+static float	clamp_ratio(float ratio)
 {
 	if (ratio < 0.0f)
 		return (0.0f);
@@ -23,21 +23,29 @@ static float clamp_ratio(float ratio)
 
 static int	interpolate_color(int low_color, int high_color, float ratio)
 {
-	int	red, green, blue;
+	int	red;
+	int	green;
+	int	blue;
 
 	ratio = clamp_ratio(ratio);
-	red = ((low_color >> 16) & 0xFF) + ratio * (((high_color >> 16) & 0xFF) - ((low_color >> 16) & 0xFF));
-	green = ((low_color >> 8) & 0xFF) + ratio * (((high_color >> 8) & 0xFF) - ((low_color >> 8) & 0xFF));
-	blue = (low_color & 0xFF) + ratio * ((high_color & 0xFF) - (low_color & 0xFF));
-
-	// Ensure RGB values are in the valid range [0, 255]
-	if (red < 0) red = 0;
-	if (red > 255) red = 255;
-	if (green < 0) green = 0;
-	if (green > 255) green = 255;
-	if (blue < 0) blue = 0;
-	if (blue > 255) blue = 255;
-
+	red = ((low_color >> 16) & 0xFF) + ratio * (((high_color >> 16) & 0xFF)
+			- ((low_color >> 16) & 0xFF));
+	green = ((low_color >> 8) & 0xFF) + ratio * (((high_color >> 8) & 0xFF)
+			- ((low_color >> 8) & 0xFF));
+	blue = (low_color & 0xFF) + ratio * ((high_color & 0xFF)
+			- (low_color & 0xFF));
+	if (red < 0)
+		red = 0;
+	if (red > 255)
+		red = 255;
+	if (green < 0)
+		green = 0;
+	if (green > 255)
+		green = 255;
+	if (blue < 0)
+		blue = 0;
+	if (blue > 255)
+		blue = 255;
 	return ((red << 16) | (green << 8) | blue);
 }
 
@@ -77,4 +85,14 @@ void	bresenham_draw(t_fdf *fdf, t_point p1, t_point p2, t_line *line)
 			p1.y += line->sy;
 		}
 	}
+}
+
+int	get_color(t_fdf *fdf, int z)
+{
+	float	ratio;
+
+	if (fdf->max_z != fdf->min_z)
+		return (fdf->low_color);
+	ratio = (z - fdf->min_z) / (fdf->max_z - fdf->min_z);
+	return (interpolate_color(fdf->low_color, fdf->high_color, ratio));
 }

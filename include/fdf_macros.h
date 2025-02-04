@@ -31,6 +31,5 @@
 # define PINK 0xFFC0CB
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
-# define NUM_COLOR_SCHEMES 6
 
 #endif // FDF_MACROS_H

@@ -23,7 +23,7 @@ AR = ar rcs
 SRCS_DIR = src
 INCLUDES = include/libft.h
 
-# All source files (from libft, printf, and get_next_line)
+# All source files (from libft, printf, get_next_line, and extra)
 SRCS = $(SRCS_DIR)/ft_isalpha.c $(SRCS_DIR)/ft_isdigit.c \
        $(SRCS_DIR)/ft_isalnum.c $(SRCS_DIR)/ft_isascii.c \
        $(SRCS_DIR)/ft_isprint.c $(SRCS_DIR)/ft_strlen.c \

@@ -42,13 +42,13 @@ typedef struct s_fdf
 	int		win_width;
 	int		win_height;
 	int		key_pressed[KEY_COUNT];
-	int		min_z;
-	int		max_z;
 	int		projections;
 	int		line_thickness;
 	int		color_index;
 	int		low_color;
 	int		high_color;
+        float	min_z;
+        float 	max_z;
 	float	zoom;
 	float	rotation_y;
 	float	rotation_x;
