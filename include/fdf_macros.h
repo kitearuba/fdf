@@ -17,7 +17,7 @@
 # define ESC_KEY 65307
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
-# define KEY_COUNT 20
+# define KEY_COUNT 25
 # define DEFAULT_COLOR 0xFFFFFF
 # define LIGHT_GREEN 0x77DD77
 # define MINT_GREEN 0x98FB98
@@ -25,7 +25,12 @@
 # define SKY_BLUE 0x87CEEB
 # define TEAL_BLUE 0x008080
 # define ICE_BLUE 0xB3E0FF
+# define RED 0xFF0000
+# define ORANGE 0xFFA500
+# define PURPLE 0x800080
+# define PINK 0xFFC0CB
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
+# define NUM_COLOR_SCHEMES 6
 
 #endif // FDF_MACROS_H

@@ -44,7 +44,7 @@ t_point	apply_parallel(t_fdf *fdf, int x, int y, int z)
 	p.x = (x * fdf->zoom) + fdf->offset_x;
 	p.y = (y * fdf->zoom) - (z * fdf->zoom / 10) + fdf->offset_y;
 	p.z = z;
-	p.color = get_color(z, fdf->min_z, fdf->max_z);
+	p.color = get_color(fdf, z);
 	return (p);
 }
 
@@ -61,6 +61,6 @@ t_point	apply_isometric(t_fdf *fdf, int x, int y, int z)
 	p.y = (rot.final_x + rot.final_y) * sin(0.523599) * fdf->zoom - (rot.tmp_z * fdf->zoom / 10)
 		+ fdf->offset_y;
 	p.z = rot.tmp_z;
-	p.color = get_color(rot.tmp_z, fdf->min_z, fdf->max_z);
+	p.color = get_color(fdf,  (int)rot.tmp_z);
 	return (p);
 }

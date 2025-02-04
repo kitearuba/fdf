@@ -80,6 +80,37 @@ static void	update_projection_thickness(t_fdf *fdf, int *updated)
 		fdf->line_thickness -= 1;
 		*updated = 1;
 	}
+
+}
+
+static void	update_color(t_fdf *fdf, int *updated)
+{
+	if (fdf->key_pressed[17])
+	{
+		fdf->low_color = DEFAULT_COLOR;
+		fdf->high_color = DEFAULT_COLOR;
+		*updated = 1;
+	}
+	if (fdf->key_pressed[18])
+	{
+		fdf->color_index = (fdf->color_index + 1) % NUM_COLOR_SCHEMES;
+		const int *colors = get_color_scheme(fdf->color_index);
+		fdf->low_color = colors[0];
+		*updated = 1;
+	}
+	if (fdf->key_pressed[19])
+	{
+		fdf->color_index = (fdf->color_index + 1) % NUM_COLOR_SCHEMES;
+		const int *colors = get_color_scheme(fdf->color_index);
+		fdf->high_color = colors[1];
+		*updated = 1;
+	}
+	if (fdf->key_pressed[20])
+	{
+		fdf->low_color = ICE_BLUE;
+		fdf->high_color = ORANGE;
+		*updated = 1;
+	}
 }
 
 int	update_frame(t_fdf *fdf)
@@ -92,6 +123,7 @@ int	update_frame(t_fdf *fdf)
 	update_projection_thickness(fdf, &updated);
 	update_offset(fdf, &updated);
 	update_zoom_rotation(fdf, &updated);
+	update_color(fdf, &updated);
 	if (updated)
 		render_fdf(fdf);
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img.img, 0, 0);

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../include/fdf.h"
-
+/*
 static int	interpolate_color(int start_color, int end_color, float t)
 {
 	int	r;
@@ -24,6 +24,35 @@ static int	interpolate_color(int start_color, int end_color, float t)
 		+ ((end_color >> 8) & 0xFF) * t;
 	b = (start_color & 0xFF) * (1 - t) + (end_color & 0xFF) * t;
 	return ((r << 16) | (g << 8) | b);
+}
+*/
+static float clamp_ratio(float ratio)
+{
+	if (ratio < 0.0f)
+		return (0.0f);
+	if (ratio > 1.0f)
+		return (1.0f);
+	return (ratio);
+}
+
+static int	interpolate_color(int low_color, int high_color, float ratio)
+{
+	int	red, green, blue;
+
+	ratio = clamp_ratio(ratio);
+	red = ((low_color >> 16) & 0xFF) + ratio * (((high_color >> 16) & 0xFF) - ((low_color >> 16) & 0xFF));
+	green = ((low_color >> 8) & 0xFF) + ratio * (((high_color >> 8) & 0xFF) - ((low_color >> 8) & 0xFF));
+	blue = (low_color & 0xFF) + ratio * ((high_color & 0xFF) - (low_color & 0xFF));
+
+	// Ensure RGB values are in the valid range [0, 255]
+	if (red < 0) red = 0;
+	if (red > 255) red = 255;
+	if (green < 0) green = 0;
+	if (green > 255) green = 255;
+	if (blue < 0) blue = 0;
+	if (blue > 255) blue = 255;
+
+	return ((red << 16) | (green << 8) | blue);
 }
 
 static void	put_pixel_to_image(t_fdf *fdf, int x, int y, int color)
@@ -49,8 +78,8 @@ static void	init_line_struct(t_line *line, t_point p1, t_point p2, t_fdf *fdf)
 	if (p1.y < p2.y)
 		line->sy = 1;
 	line->err = line->dx - line->dy;
-	line->color1 = get_color(p1.z, fdf->min_z, fdf->max_z);
-	line->color2 = get_color(p2.z, fdf->min_z, fdf->max_z);
+	line->color1 = get_color(fdf, p1.z);
+	line->color2 = get_color(fdf, p2.z);
 	line->steps = line->dx;
 	if (line->dy > line->dx)
 		line->steps = line->dy;

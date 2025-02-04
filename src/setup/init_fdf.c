@@ -39,6 +39,8 @@ t_fdf	*init_fdf(t_map *map)
 	if (!fdf)
 		fatal_error("Error: Memory allocation failed for FDF");
 	ft_memset(fdf, 0, sizeof(t_fdf));
+	fdf->low_color = DEFAULT_COLOR;
+	fdf->high_color = DEFAULT_COLOR;
 	fdf->map = map;
 	set_window_size(fdf);
 	set_fixed_zoom(fdf, map);

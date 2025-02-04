@@ -52,8 +52,10 @@ void	draw_thick_line(t_fdf *fdf, t_point p1, t_point p2);
 int		handle_key_press(int key, t_fdf *fdf);
 int		handle_key_release(int key, t_fdf *fdf);
 int		update_frame(t_fdf *fdf);
-int		get_color(int z, int min_z, int max_z);
+int	get_color(t_fdf *fdf, int z);
 int		update_frame(t_fdf *fdf);
+const int	*get_color_scheme(int index);
+const int	*get_color_scheme(int index);
 
 /* Utils */
 void	free_map(t_map *map);

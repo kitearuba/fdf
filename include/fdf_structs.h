@@ -46,6 +46,9 @@ typedef struct s_fdf
 	int		max_z;
 	int		projections;
 	int		line_thickness;
+	int		color_index;
+	int		low_color;
+	int		high_color;
 	float	zoom;
 	float	rotation_y;
 	float	rotation_x;
@@ -78,12 +81,12 @@ typedef struct s_rotation
 {
 	float	rad_x;
 	float	rad_y;
-	float	rad_z;   // NEW: Radians for Z rotation
+	float	rad_z;
 	float	tmp_x;
 	float	tmp_y;
 	float	tmp_z;
-	float	final_x;  // NEW: After Z-axis rotation
-	float	final_y;  // NEW: After Z-axis rotation
+	float	final_x;
+	float	final_y;
 }	t_rotation;
 
 #endif // FDF_STRUCTS_H
