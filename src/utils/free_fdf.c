@@ -12,6 +12,22 @@
 
 #include "../../include/fdf.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  FREE FDF  :::                                 */
+/*                                                                            */
+/*   Function: free_fdf                                                       */
+/*   Description: Frees all allocated resources within the FDF structure.     */
+/*                                                                            */
+/*   - Frees the parsed map data if allocated.                                */
+/*   - Destroys the MiniLibX image if it exists.                              */
+/*   - Destroys the MiniLibX window if it was created.                        */
+/*   - Cleans up the MiniLibX display and frees the MLX instance.             */
+/*   - Frees the FDF structure itself.                                        */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure to be freed.                     */
+/*                                                                            */
+/* ************************************************************************** */
 void	free_fdf(t_fdf *fdf)
 {
 	if (fdf)

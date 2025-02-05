@@ -12,6 +12,20 @@
 
 #include "../../include/fdf.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  FIND MIN MAX Z  :::                           */
+/*                                                                            */
+/*   Function: find_min_max_z                                                 */
+/*   Description: Determines the minimum and maximum Z values in the map.     */
+/*                                                                            */
+/*   - Iterates through the entire map to find the lowest and highest Z values.*/
+/*   - Stores the results in fdf->min_z and fdf->max_z.                       */
+/*   - Ensures proper handling of empty or NULL map data.                     */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure containing map data.             */
+/*                                                                            */
+/* ************************************************************************** */
 void	find_min_max_z(t_fdf *fdf)
 {
 	int	x;

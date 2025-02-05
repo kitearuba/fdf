@@ -12,43 +12,23 @@
 
 #include "../../include/fdf.h"
 
-static float	clamp_ratio(float ratio)
-{
-	if (ratio < 0.0f)
-		return (0.0f);
-	if (ratio > 1.0f)
-		return (1.0f);
-	return (ratio);
-}
-
-static int	interpolate_color(int low_color, int high_color, float ratio)
-{
-	int	red;
-	int	green;
-	int	blue;
-
-	ratio = clamp_ratio(ratio);
-	red = ((low_color >> 16) & 0xFF) + ratio * (((high_color >> 16) & 0xFF)
-			- ((low_color >> 16) & 0xFF));
-	green = ((low_color >> 8) & 0xFF) + ratio * (((high_color >> 8) & 0xFF)
-			- ((low_color >> 8) & 0xFF));
-	blue = (low_color & 0xFF) + ratio * ((high_color & 0xFF)
-			- (low_color & 0xFF));
-	if (red < 0)
-		red = 0;
-	if (red > 255)
-		red = 255;
-	if (green < 0)
-		green = 0;
-	if (green > 255)
-		green = 255;
-	if (blue < 0)
-		blue = 0;
-	if (blue > 255)
-		blue = 255;
-	return ((red << 16) | (green << 8) | blue);
-}
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  PUT PIXEL TO IMAGE  :::                       */
+/*                                                                            */
+/*   Function: put_pixel_to_image                                             */
+/*   Description: Draws a pixel with a specified color on the image buffer.   */
+/*                                                                            */
+/*   - Ensures the pixel coordinates are within the window bounds.            */
+/*   - Calculates the correct memory position in the image buffer.            */
+/*   - Stores the color value at the computed address.                        */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure containing the image buffer.     */
+/*   @param x The x-coordinate of the pixel.                                  */
+/*   @param y The y-coordinate of the pixel.                                  */
+/*   @param color The color to set for the pixel.                             */
+/*                                                                            */
+/* ************************************************************************** */
 static void	put_pixel_to_image(t_fdf *fdf, int x, int y, int color)
 {
 	char	*dst;
@@ -61,6 +41,23 @@ static void	put_pixel_to_image(t_fdf *fdf, int x, int y, int color)
 	}
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  BRESENHAM DRAW  :::                           */
+/*                                                                            */
+/*   Function: bresenham_draw                                                 */
+/*   Description: Implements the Bresenham algorithm for drawing lines.       */
+/*                                                                            */
+/*   - Uses integer-based calculations for efficient line drawing.            */
+/*   - Computes and assigns pixel colors based on interpolation.              */
+/*   - Determines pixel placement by updating error terms.                    */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure.                                 */
+/*   @param p1 The starting point of the line.                                */
+/*   @param p2 The ending point of the line.                                  */
+/*   @param line Pointer to the structure containing line attributes.         */
+/*                                                                            */
+/* ************************************************************************** */
 void	bresenham_draw(t_fdf *fdf, t_point p1, t_point p2, t_line *line)
 {
 	int		pixel_color;
@@ -85,16 +82,4 @@ void	bresenham_draw(t_fdf *fdf, t_point p1, t_point p2, t_line *line)
 			p1.y += line->sy;
 		}
 	}
-}
-
-int	get_color(t_fdf *fdf, int z)
-{
-	float	ratio;
-
-    ratio = 0;
-	if (fdf->max_z == fdf->min_z)
-		return (fdf->high_color);
-	ratio = (z - fdf->min_z) / (fdf->max_z - fdf->min_z);
-    ratio = clamp_ratio(ratio);
-   	return (interpolate_color(fdf->low_color, fdf->high_color, ratio));
 }

@@ -14,18 +14,18 @@
 
 /* ************************************************************************** */
 /*                                                                            */
-/*   free_2d_array                                                            */
+/*                         :::  FREE 2D ARRAY  :::                            */
 /*                                                                            */
-/*   Frees a dynamically allocated 2D array of strings.                       */
-/*   Iterates through each element of the array, freeing each string          */
-/*   individually, before freeing the array itself. Ensures no memory leaks   */
-/*   by setting freed pointers to NULL.                                       */
+/*   Function: free_2d_array                                                  */
+/*   Description: Frees a dynamically allocated 2D array of strings.          */
 /*                                                                            */
-/*   @param arr: A pointer to the 2D array to be freed.                       */
-/*   @return: None.                                                           */
+/*   - Iterates through each element of the array and frees each string.      */
+/*   - Frees the array itself after all elements are released.                */
+/*   - Ensures no memory leaks by setting freed pointers to NULL.             */
+/*                                                                            */
+/*   @param arr Pointer to the 2D array to be freed.                          */
 /*                                                                            */
 /* ************************************************************************** */
-
 void	free_2d_array(char **arr)
 {
 	int	i;

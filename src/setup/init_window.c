@@ -12,12 +12,41 @@
 
 #include "../../include/fdf.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  SET WINDOW SIZE  :::                          */
+/*                                                                            */
+/*   Function: set_window_size                                                */
+/*   Description: Defines the default window dimensions for rendering.        */
+/*                                                                            */
+/*   - Sets the window width to MACRO WIN_WIDTH.                                  */
+/*   - Sets the window height to MACRO WIN_HEIGHT.                                 */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure where window size is stored.     */
+/*                                                                            */
+/* ************************************************************************** */
 void	set_window_size(t_fdf *fdf)
 {
-	fdf->win_width = 1920;
-	fdf->win_height = 1080;
+	fdf->win_width = WIN_WIDTH;
+	fdf->win_height = WIN_HEIGHT;
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  SET FIXED ZOOM  :::                           */
+/*                                                                            */
+/*   Function: set_fixed_zoom                                                 */
+/*   Description: Determines the zoom level based on the map size.            */
+/*                                                                            */
+/*   - Uses a base zoom level of 20 for small maps.                           */
+/*   - Adjusts zoom dynamically for larger maps to maintain visibility.       */
+/*   - If the map's largest dimension exceeds 100, reduces zoom to 5.         */
+/*   - If the largest dimension exceeds 50 but is below 100, sets zoom to 10. */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure where zoom is stored.            */
+/*   @param map Pointer to the map structure to determine its size.           */
+/*                                                                            */
+/* ************************************************************************** */
 void	set_fixed_zoom(t_fdf *fdf, t_map *map)
 {
 	int	max_size;
@@ -32,6 +61,21 @@ void	set_fixed_zoom(t_fdf *fdf, t_map *map)
 		fdf->zoom = 10;
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  SET OFFSET  :::                               */
+/*                                                                            */
+/*   Function: set_offset                                                     */
+/*   Description: Centers the map within the window by adjusting offsets.     */
+/*                                                                            */
+/*   - Computes the center of the map based on width, height, and zoom.       */
+/*   - Adjusts offset_x and offset_y to position the map in the center.       */
+/*   - Ensures correct centering for different map sizes.                     */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure where offsets are stored.        */
+/*   @param map Pointer to the map structure to determine positioning.        */
+/*                                                                            */
+/* ************************************************************************** */
 void	set_offset(t_fdf *fdf, t_map *map)
 {
 	int	center_x;

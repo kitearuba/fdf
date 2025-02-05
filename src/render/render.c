@@ -12,6 +12,22 @@
 
 #include "../../include/fdf.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  DRAW HORIZONTAL LINE  :::                     */
+/*                                                                            */
+/*   Function: draw_horizontal_line                                           */
+/*   Description: Draws a horizontal line connecting two adjacent points.     */
+/*                                                                            */
+/*   - Retrieves the Z values and assigns colors for both points.             */
+/*   - Applies either isometric or parallel projection based on settings.     */
+/*   - Calls draw_thick_line to render the final line.                        */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure containing rendering data.       */
+/*   @param x The x-coordinate of the starting point.                         */
+/*   @param y The y-coordinate of the starting point.                         */
+/*                                                                            */
+/* ************************************************************************** */
 static void	draw_horizontal_line(t_fdf *fdf, int x, int y)
 {
 	t_point	p1;
@@ -38,6 +54,22 @@ static void	draw_horizontal_line(t_fdf *fdf, int x, int y)
 	draw_thick_line(fdf, p1, p2);
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  DRAW VERTICAL LINE  :::                       */
+/*                                                                            */
+/*   Function: draw_vertical_line                                             */
+/*   Description: Draws a vertical line connecting two adjacent points.       */
+/*                                                                            */
+/*   - Retrieves the Z values and assigns colors for both points.             */
+/*   - Applies either isometric or parallel projection based on settings.     */
+/*   - Calls draw_thick_line to render the final line.                        */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure containing rendering data.       */
+/*   @param x The x-coordinate of the starting point.                         */
+/*   @param y The y-coordinate of the starting point.                         */
+/*                                                                            */
+/* ************************************************************************** */
 static void	draw_vertical_line(t_fdf *fdf, int x, int y)
 {
 	t_point	p1;
@@ -64,6 +96,19 @@ static void	draw_vertical_line(t_fdf *fdf, int x, int y)
 	draw_thick_line(fdf, p1, p2);
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  RENDER MAP  :::                               */
+/*                                                                            */
+/*   Function: render_map                                                     */
+/*   Description: Iterates through the map and draws the wireframe grid.      */
+/*                                                                            */
+/*   - Loops through all points in the map.                                   */
+/*   - Calls draw_horizontal_line and draw_vertical_line where applicable.    */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure containing rendering data.       */
+/*                                                                            */
+/* ************************************************************************** */
 static void	render_map(t_fdf *fdf)
 {
 	int	x;
@@ -85,6 +130,21 @@ static void	render_map(t_fdf *fdf)
 	}
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  RENDER FDF  :::                               */
+/*                                                                            */
+/*   Function: render_fdf                                                     */
+/*   Description: Clears the screen and renders the entire 3D model.         */
+/*                                                                            */
+/*   - Clears the image buffer before rendering.                              */
+/*   - Calls find_min_max_z to determine height range for coloring.           */
+/*   - Calls render_map to draw the entire structure.                         */
+/*   - Places the final image onto the window using MiniLibX.                 */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure containing rendering data.       */
+/*                                                                            */
+/* ************************************************************************** */
 void	render_fdf(t_fdf *fdf)
 {
 	ft_memset(fdf->img.addr, 0, fdf->win_height * fdf->img.line_length);

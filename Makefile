@@ -64,7 +64,8 @@ SRC 		:= $(SRC_DIR)/core/main.c \
                $(SRC_DIR)/render/draw_line.c \
                $(SRC_DIR)/render/handle_keys.c \
                $(SRC_DIR)/render/update_frame.c \
-               $(SRC_DIR)/render/bresenham_draw.c
+               $(SRC_DIR)/render/bresenham_draw.c \
+               $(SRC_DIR)/render/color_utils.c \
 
 # Object files
 OBJ			= $(SRC:.c=.o)

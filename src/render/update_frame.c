@@ -12,6 +12,21 @@
 
 #include "../../include/fdf.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  UPDATE OFFSET  :::                            */
+/*                                                                            */
+/*   Function: update_offset                                                  */
+/*   Description: Adjusts the map's position based on arrow key inputs.       */
+/*                                                                            */
+/*   - Moves the map left, right, up, or down based on key presses.           */
+/*   - Updates either the X or Y offset accordingly.                          */
+/*   - Flags the frame as updated if any movement occurs.                     */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure containing map settings.         */
+/*   @param updated Pointer to the flag indicating if an update occurred.     */
+/*                                                                            */
+/* ************************************************************************** */
 static void	update_offset(t_fdf *fdf, int *updated)
 {
 	const int	offset_keys[] = {1, 2, 3, 4};
@@ -33,6 +48,21 @@ static void	update_offset(t_fdf *fdf, int *updated)
 	}
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  UPDATE ZOOM & ROTATION  :::                   */
+/*                                                                            */
+/*   Function: update_zoom_rotation                                           */
+/*   Description: Modifies zoom level and rotation angles based on input.     */
+/*                                                                            */
+/*   - Adjusts zoom level when zoom in/out keys are pressed.                  */
+/*   - Rotates the map along the X, Y, or Z axis based on rotation keys.      */
+/*   - Flags the frame as updated if any changes occur.                       */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure containing map settings.         */
+/*   @param updated Pointer to the flag indicating if an update occurred.     */
+/*                                                                            */
+/* ************************************************************************** */
 static void	update_zoom_rotation(t_fdf *fdf, int *updated)
 {
 	const int	keys[] = {5, 6, 7, 8, 9, 10, 11, 12};
@@ -58,6 +88,21 @@ static void	update_zoom_rotation(t_fdf *fdf, int *updated)
 	}
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  UPDATE PROJECTION & THICKNESS  :::            */
+/*                                                                            */
+/*   Function: update_projection_and_l_thickness                              */
+/*   Description: Updates the projection mode and line thickness.             */
+/*                                                                            */
+/*   - Switches between isometric and parallel projections.                   */
+/*   - Increases or decreases line thickness within the allowed range.        */
+/*   - Flags the frame as updated if any changes occur.                       */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure containing projection settings.  */
+/*   @param updated Pointer to the flag indicating if an update occurred.     */
+/*                                                                            */
+/* ************************************************************************** */
 static void	update_projection_and_l_thickness(t_fdf *fdf, int *updated)
 {
 	if (fdf->key_pressed[13])
@@ -82,6 +127,21 @@ static void	update_projection_and_l_thickness(t_fdf *fdf, int *updated)
 	}
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  UPDATE COLOR  :::                             */
+/*                                                                            */
+/*   Function: update_color                                                   */
+/*   Description: Changes the map's color theme based on key input.           */
+/*                                                                            */
+/*   - Resets colors to default when the reset key is pressed.                */
+/*   - Changes the color gradient between predefined color sets.               */
+/*   - Flags the frame as updated if any color change occurs.                  */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure containing color settings.       */
+/*   @param updated Pointer to the flag indicating if an update occurred.     */
+/*                                                                            */
+/* ************************************************************************** */
 static void	update_color(t_fdf *fdf, int *updated)
 {
 	if (fdf->key_pressed[17])
@@ -110,6 +170,22 @@ static void	update_color(t_fdf *fdf, int *updated)
 	}
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  UPDATE FRAME  :::                             */
+/*                                                                            */
+/*   Function: update_frame                                                   */
+/*   Description: Handles all user input updates and redraws the frame.       */
+/*                                                                            */
+/*   - Exits the program if the escape key is pressed.                        */
+/*   - Updates projection mode, zoom, rotation, offset, and colors.           */
+/*   - Calls render_fdf if any updates occurred.                              */
+/*   - Displays the updated image using MiniLibX.                             */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure containing rendering settings.   */
+/*   @return Always returns 0 (for compatibility with MiniLibX hooks).        */
+/*                                                                            */
+/* ************************************************************************** */
 int	update_frame(t_fdf *fdf)
 {
 	int	updated;

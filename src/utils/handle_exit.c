@@ -12,6 +12,20 @@
 
 #include "../../include/fdf.h"
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                         :::  HANDLE EXIT  :::                              */
+/*                                                                            */
+/*   Function: handle_exit                                                    */
+/*   Description: Cleans up all resources and safely exits the program.       */
+/*                                                                            */
+/*   - Calls free_fdf to release all allocated resources.                     */
+/*   - Terminates the program using exit(0).                                  */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure to be freed before exiting.      */
+/*   @return Always returns 0 (for compatibility with MiniLibX hooks).        */
+/*                                                                            */
+/* ************************************************************************** */
 int	handle_exit(t_fdf *fdf)
 {
 	free_fdf(fdf);
