@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_utils.c                                   :+:      :+:    :+:   */
+/*   color_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 03:45:25 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/04 20:55:24 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:54:37 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,10 @@ int	get_color(t_fdf *fdf, int z)
 {
 	float	ratio;
 
-    ratio = 0;
+	ratio = 0;
 	if (fdf->max_z == fdf->min_z)
 		return (fdf->high_color);
 	ratio = (z - fdf->min_z) / (fdf->max_z - fdf->min_z);
-    ratio = clamp_ratio(ratio);
-   	return (interpolate_color(fdf->low_color, fdf->high_color, ratio));
+	ratio = clamp_ratio(ratio);
+	return (interpolate_color(fdf->low_color, fdf->high_color, ratio));
 }

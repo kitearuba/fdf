@@ -29,8 +29,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efaa287-e87c-437f-8995-70c195d84775" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/fdf.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fdf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/fdf_structs.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fdf_structs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parsing/parse.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parsing/parse_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parsing/validate_dimensions.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/validate_dimensions.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/color_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/color_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/draw_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/draw_line.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/handle_keys.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/handle_keys.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/render.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/render.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/render/update_frame.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/update_frame.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setup/init_window.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/setup/init_window.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/find_min_max_z.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/find_min_max_z.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/free_map.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/free_map.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +119,7 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/christian/Desktop/fdf/fdf&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/chrrodri/homework/fdf/src/utils&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -125,7 +138,6 @@
       <recent name="$PROJECT_DIR$/src/core" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/render" />
       <recent name="$PROJECT_DIR$/src/setup" />
       <recent name="$PROJECT_DIR$/libft" />
     </key>
@@ -161,11 +173,6 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf" TARGET_NAME="all" CONFIG_NAME="all" version="1">
-      <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
@@ -192,16 +199,6 @@
       </method>
     </configuration>
     <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
-      <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="fclean" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf" TARGET_NAME="fclean" CONFIG_NAME="fclean" version="1">
-      <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="fdf" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf" TARGET_NAME="fdf" CONFIG_NAME="fdf" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
@@ -266,9 +263,9 @@
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="re" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="fdf" TARGET_NAME="re" CONFIG_NAME="re" version="1">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -309,25 +306,12 @@
       <workItem from="1738576536866" duration="22157000" />
       <workItem from="1738687813297" duration="2209000" />
       <workItem from="1738695610381" duration="12085000" />
-      <workItem from="1738770438650" duration="56000" />
-      <workItem from="1738770520848" duration="7551000" />
-      <workItem from="1738778903298" duration="6032000" />
+      <workItem from="1738787644019" duration="3424000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/render/draw_line.c</url>
-          <line>96</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

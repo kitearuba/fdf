@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 03:45:25 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/04 20:47:49 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:53:44 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 /*                                                                            */
 /*   - Calculates the differences (dx, dy) between the two points.            */
 /*   - Determines the step direction for X and Y movement.                    */
-/*   - Initializes the Bresenham error term.                                   */
+/*   - Initializes the Bresenham error term.                                  */
 /*   - Assigns interpolated colors based on Z-values.                         */
 /*   - Computes the number of steps required for line interpolation.          */
 /*                                                                            */

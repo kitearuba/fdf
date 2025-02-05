@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/31 23:19:34 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/05 22:41:13 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,14 @@
 /*                         :::  FREE MAP  :::                                 */
 /*                                                                            */
 /*   Function: free_map                                                       */
-/*   Description: Frees all allocated memory for the map structure.           */
+/*   Description: Frees all allocated memory for the map & colors structure.  */
 /*                                                                            */
 /*   - Iterates through the 2D data array and frees each row.                 */
-/*   - Frees the map's data array.                                            */
+/*   - Frees the map's and colors's data array.                               */
 /*   - Resets the map dimensions to prevent accidental access.                */
 /*                                                                            */
-/*   @param map Pointer to the map structure to be freed.                     */
-/*                                                                            */
 /* ************************************************************************** */
-void	free_map(t_map *map)
+static void	free_map_data(t_map *map)
 {
 	int	i;
 
@@ -41,6 +39,29 @@ void	free_map(t_map *map)
 		free(map->data);
 		map->data = NULL;
 	}
+}
+
+static void	free_map_colors(t_map *map)
+{
+	int	i;
+
+	if (map->colors)
+	{
+		i = 0;
+		while (i < map->height)
+		{
+			free(map->colors[i]);
+			i++;
+		}
+		free(map->colors);
+		map->colors = NULL;
+	}
+}
+
+void	free_map(t_map *map)
+{
+	free_map_data(map);
+	free_map_colors(map);
 	map->height = 0;
 	map->width = 0;
 }

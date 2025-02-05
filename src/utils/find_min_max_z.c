@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/31 23:14:36 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:52:12 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /*   Function: find_min_max_z                                                 */
 /*   Description: Determines the minimum and maximum Z values in the map.     */
 /*                                                                            */
-/*   - Iterates through the entire map to find the lowest and highest Z values.*/
+/*   - Iterates through the entire map to find lowest and highest Z values.   */
 /*   - Stores the results in fdf->min_z and fdf->max_z.                       */
 /*   - Ensures proper handling of empty or NULL map data.                     */
 /*                                                                            */
@@ -32,7 +32,7 @@ void	find_min_max_z(t_fdf *fdf)
 	int	y;
 
 	if (!fdf || !fdf->map || !fdf->map->data)
-		return;
+		return ;
 	fdf->min_z = (float)fdf->map->data[0][0];
 	fdf->max_z = (float)fdf->map->data[0][0];
 	y = 0;

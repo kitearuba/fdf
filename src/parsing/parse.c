@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/02 23:11:13 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/05 22:43:54 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	allocate_row_memory(t_map *map, int i)
 /*                                                                            */
 /*   - Allocates memory for the row pointers of height and color data.        */
 /*   - Iterates over each row and allocates memory using allocate_row_memory. */
-/*   - Ensures proper cleanup in case of allocation failure.                   */
+/*   - Ensures proper cleanup in case of allocation failure.                  */
 /*                                                                            */
 /*   @param map Pointer to the map structure.                                 */
 /*   @return 1 if successful, 0 if allocation fails.                          */
@@ -66,8 +66,7 @@ static int	allocate_map_memory(t_map *map)
 	map->colors = (int **)malloc(map->height * sizeof(int *));
 	if (!map->data || !map->colors)
 	{
-		free(map->data);
-		free(map->colors);
+		free_map(map);
 		return (0);
 	}
 	i = 0;
@@ -169,37 +168,17 @@ int	parse_map(const char *filename, t_map *map)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-	{
-		ft_printf_fd(STDERR, "Error: Failed to open file\n");
-		return (0);
-	}
+		parse_error("Error: Failed to open file\n", fd, map);
 	if (!count_dimensions(fd, map))
-	{
-		ft_printf_fd(STDERR, "Error: Failed to count map dimensions\n");
-		close(fd);
-		return (0);
-	}
+		parse_error("Error: Failed to count map dimensions\n", fd, map);
 	close(fd);
-
 	if (!allocate_map_memory(map))
-	{
-		ft_printf_fd(STDERR, "Error: Memory allocation failed\n");
-		return (0);
-	}
-
+		parse_error("Error: Memory allocation failed\n", fd, map);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-	{
-		ft_printf_fd(STDERR, "Error: Failed to reopen file\n");
-		return (0);
-	}
+		parse_error("Error: Failed to reopen file\n", fd, map);
 	if (!parse_values(fd, map))
-	{
-		ft_printf_fd(STDERR, "Error: Failed to parse map values\n");
-		free_map(map);
-		close(fd);
-		return (0);
-	}
+		parse_error("Error: Failed to parse map values\n", fd, map);
 	close(fd);
 	return (1);
 }

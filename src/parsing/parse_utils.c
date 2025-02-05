@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/04 20:21:39 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/05 22:42:24 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,13 @@ int	parse_rows(int fd, t_map *map, int *row)
 		line = get_next_line(fd);
 	}
 	return (1);
+}
+
+int	parse_error(char *str, int fd, t_map *map)
+{
+	ft_printf_fd(STDERR, "%s\n", str);
+	if (fd)
+		close(fd);
+	free_map(map);
+	return (0);
 }

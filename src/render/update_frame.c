@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 02:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/04 22:55:22 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:53:18 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,8 @@ static void	update_projection_and_l_thickness(t_fdf *fdf, int *updated)
 /*   Description: Changes the map's color theme based on key input.           */
 /*                                                                            */
 /*   - Resets colors to default when the reset key is pressed.                */
-/*   - Changes the color gradient between predefined color sets.               */
-/*   - Flags the frame as updated if any color change occurs.                  */
+/*   - Changes the color gradient between predefined color sets.              */
+/*   - Flags the frame as updated if any color change occurs.                 */
 /*                                                                            */
 /*   @param fdf Pointer to the FDF structure containing color settings.       */
 /*   @param updated Pointer to the flag indicating if an update occurred.     */

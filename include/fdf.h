@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/04 21:16:04 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/05 22:45:13 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int			parse_strict_atoi(const char *str, char **args);
 
 void		free_on_error(t_fdf *fdf, const char *error_message);
 void		fatal_error(const char *msg);
+int			parse_error(char *str, int fd, t_map *map);
 
 /* ************************************************************************** */
 /*                          Initialization                                    */

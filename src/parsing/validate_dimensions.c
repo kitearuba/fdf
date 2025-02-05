@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 23:24:07 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/02 23:27:40 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:56:15 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	handle_invalid_line(const char *line)
 /*   Description: Determines if a given string is a valid numeric value.      */
 /*                                                                            */
 /*   - Checks if the first character is a digit or a minus sign.              */
-/*   - Prints an error if a non-numeric character is found.                    */
+/*   - Prints an error if a non-numeric character is found.                   */
 /*                                                                            */
 /*   @param str The string to validate.                                       */
 /*   @return 1 if the string is a valid number, 0 otherwise.                  */
