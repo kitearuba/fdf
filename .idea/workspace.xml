@@ -29,29 +29,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efaa287-e87c-437f-8995-70c195d84775" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/render/color_utils.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fdf" beforeDir="false" afterPath="$PROJECT_DIR$/fdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/fdf.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fdf.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/fdf_macros.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fdf_macros.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/fdf_structs.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/fdf_structs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/parse_strict_atoi.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse_strict_atoi.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/parse_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/parse_utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parsing/validate_dimensions.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parsing/validate_dimensions.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/bresenham_draw.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/bresenham_draw.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/draw_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/draw_line.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/handle_keys.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/handle_keys.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/render.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/render.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/transform_3d_to_2d.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/transform_3d_to_2d.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/render/update_frame.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/render/update_frame.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setup/init_fdf.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/setup/init_fdf.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setup/init_window.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/setup/init_window.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/find_min_max_z.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/find_min_max_z.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/free_2d_array.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/free_2d_array.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/free_fdf.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/free_fdf.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/free_map.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/free_map.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/handle_exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/handle_exit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +311,7 @@
       <workItem from="1738695610381" duration="12085000" />
       <workItem from="1738770438650" duration="56000" />
       <workItem from="1738770520848" duration="7551000" />
-      <workItem from="1738778903298" duration="4988000" />
+      <workItem from="1738778903298" duration="6032000" />
     </task>
     <servers />
   </component>
