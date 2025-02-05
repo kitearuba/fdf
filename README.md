@@ -1,6 +1,6 @@
 ---
 
-```md
+```
 # 🌄 **FDF - 3D Wireframe Renderer** 🌄
 
 ![FDF](https://img.shields.io/badge/FDF-Project-blue?style=flat-square) ![C Programming](https://img.shields.io/badge/Language-C-green?style=flat-square) ![MiniLibX](https://img.shields.io/badge/Graphics-MiniLibX-purple?style=flat-square) ![42 Network](https://img.shields.io/badge/42Network-FDF-lightblue?style=flat-square)
