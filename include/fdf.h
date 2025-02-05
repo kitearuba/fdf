@@ -60,5 +60,6 @@ void		free_map(t_map *map);
 void		free_fdf(t_fdf *fdf);
 void		free_2d_array(char **arr);
 int			handle_exit(t_fdf *fdf);
+void	find_min_max_z(t_fdf *fdf);
 
 #endif //FDF_H

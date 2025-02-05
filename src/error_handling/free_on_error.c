@@ -13,26 +13,22 @@
 #include "../../include/fdf.h"
 
 /* ************************************************************************** */
-/*                          Error Handling & Cleanup                          */
+/*                                                                            */
+/*                         :::  FREE ON ERROR  :::                            */
+/*                                                                            */
+/*   Function: free_on_error                                                  */
+/*   Description: Cleans up memory and exits on fatal error.                  */
+/*                                                                            */
+/*   - Uses free_fdf to clean all allocated structures.                       */
+/*   - Calls fatal_error to display an error message and terminate.           */
+/*                                                                            */
+/*   @param fdf Pointer to the FDF structure.                                 */
+/*   @param error_message Error message to be displayed.                      */
+/*                                                                            */
 /* ************************************************************************** */
 
 void	free_on_error(t_fdf *fdf, const char *error_message)
 {
-	if (fdf)
-	{
-		if (fdf->map)
-			free_map(fdf->map);
-		if (fdf->win)
-		{
-			mlx_destroy_window(fdf->mlx, fdf->win);
-			fdf->win = NULL;
-		}
-		if (fdf->mlx)
-		{
-			free(fdf->mlx);
-			fdf->mlx = NULL;
-		}
-		free(fdf);
-	}
+	free_fdf(fdf);
 	fatal_error(error_message);
 }

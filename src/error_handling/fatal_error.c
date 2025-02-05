@@ -14,17 +14,18 @@
 
 /* ************************************************************************** */
 /*                                                                            */
-/*   fatal_error                                                              */
+/*                         :::  FATAL ERROR  :::                              */
 /*                                                                            */
-/*   Prints an error message to STDERR and exits the program.                 */
-/*   This function is used to terminate execution on critical errors.         */
+/*   File: fatal_error.c                                                      */
+/*   Description: Displays an error message and exits the program.            */
+/*                                                                            */
+/*   - Prints the provided error message to STDERR.                           */
+/*   - Appends a newline character for proper formatting.                     */
+/*   - Exits the program with a failure status.                               */
 /*                                                                            */
 /* ************************************************************************** */
-
 void	fatal_error(const char *msg)
 {
-	if (msg)
-		ft_printf_fd(STDERR, "%s", msg);
-	ft_printf_fd(STDERR, "\n");
+	ft_printf_fd(STDERR, "%s\n", msg);
 	exit(EXIT_FAILURE);
 }

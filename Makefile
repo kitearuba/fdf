@@ -56,6 +56,7 @@ SRC 		:= $(SRC_DIR)/core/main.c \
                $(SRC_DIR)/utils/free_map.c \
                $(SRC_DIR)/utils/free_fdf.c \
                $(SRC_DIR)/utils/handle_exit.c \
+               $(SRC_DIR)/utils/find_min_max_z.c \
                $(SRC_DIR)/setup/init_fdf.c \
                $(SRC_DIR)/setup/init_window.c \
                $(SRC_DIR)/render/render.c \

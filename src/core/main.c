@@ -14,21 +14,16 @@
 
 /* ************************************************************************** */
 /*                                                                            */
-/*                            :::  FDF Project  :::                           */
+/*                              :::  MAIN  :::                                */
 /*                                                                            */
-/*   File: main.c                                                            */
-/*   Description: Entry point of the FDF project.                            */
+/*   Description: Entry point of the FDF project.                             */
 /*                                                                            */
-/*   - Validates command-line arguments.                                     */
-/*   - Parses the map from the provided file.                                */
-/*   - Initializes the FDF structure.                                        */
-/*   - Renders the map using MiniLibX.                                       */
-/*   - Starts the MiniLibX event loop.                                       */
-/*   - Frees allocated memory before exiting.                                */
-/*                                                                            */
-/*   @param argc Number of command-line arguments.                           */
-/*   @param argv Array of command-line arguments.                            */
-/*   @return int Program exit status.                                        */
+/*   - Validates command-line arguments.                                      */
+/*   - Parses the map from the provided file.                                 */
+/*   - Initializes the FDF structure.                                         */
+/*   - Renders the map using MiniLibX.                                        */
+/*   - Starts the MiniLibX event loop.                                        */
+/*   - Frees allocated memory before exiting.                                 */
 /*                                                                            */
 /* ************************************************************************** */
 

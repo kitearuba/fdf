@@ -88,6 +88,7 @@ static void	render_map(t_fdf *fdf)
 void	render_fdf(t_fdf *fdf)
 {
 	ft_memset(fdf->img.addr, 0, fdf->win_height * fdf->img.line_length);
+	find_min_max_z(fdf);
 	render_map(fdf);
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img.img, 0, 0);
 }

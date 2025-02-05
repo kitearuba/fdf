@@ -91,8 +91,10 @@ int	get_color(t_fdf *fdf, int z)
 {
 	float	ratio;
 
-	if (fdf->max_z != fdf->min_z)
-		return (fdf->low_color);
+    ratio = 0;
+	if (fdf->max_z == fdf->min_z)
+		return (fdf->high_color);
 	ratio = (z - fdf->min_z) / (fdf->max_z - fdf->min_z);
-	return (interpolate_color(fdf->low_color, fdf->high_color, ratio));
+    ratio = clamp_ratio(ratio);
+   	return (interpolate_color(fdf->low_color, fdf->high_color, ratio));
 }
