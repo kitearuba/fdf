@@ -123,12 +123,3 @@ int	parse_rows(int fd, t_map *map, int *row)
 	}
 	return (1);
 }
-
-int	parse_error(char *str, int fd, t_map *map)
-{
-	ft_printf_fd(STDERR, "%s\n", str);
-	if (fd)
-		close(fd);
-	free_map(map);
-	return (0);
-}

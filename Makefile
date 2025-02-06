@@ -52,6 +52,7 @@ SRC 		:= $(SRC_DIR)/core/main.c \
                $(SRC_DIR)/parsing/validate_dimensions.c \
                $(SRC_DIR)/error_handling/fatal_error.c \
                $(SRC_DIR)/error_handling/free_on_error.c \
+               $(SRC_DIR)/error_handling/parse_error.c \
                $(SRC_DIR)/utils/free_2d_array.c \
                $(SRC_DIR)/utils/free_map.c \
                $(SRC_DIR)/utils/free_fdf.c \

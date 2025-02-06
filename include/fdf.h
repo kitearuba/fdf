@@ -21,6 +21,8 @@
 # include <fcntl.h> // For open()
 # include <stdlib.h> // For exit() and abs()
 # include <math.h>
+#include <errno.h>
+#include <string.h>
 # include "../minilibx-linux/mlx.h"
 # include "../libft/include/libft.h"
 # include "fdf_structs.h"
@@ -41,7 +43,7 @@ int			parse_strict_atoi(const char *str, char **args);
 
 void		free_on_error(t_fdf *fdf, const char *error_message);
 void		fatal_error(const char *msg);
-int			parse_error(char *str, int fd, t_map *map);
+void		parse_error(char *str, int fd, t_map *map);
 
 /* ************************************************************************** */
 /*                          Initialization                                    */
@@ -49,8 +51,6 @@ int			parse_error(char *str, int fd, t_map *map);
 
 t_fdf		*init_fdf(t_map *map);
 void		set_window_size(t_fdf *fdf);
-void		set_fixed_zoom(t_fdf *fdf, t_map *map);
-void		set_offset(t_fdf *fdf, t_map *map);
 
 /* ************************************************************************** */
 /*                          Rendering & Projection                            */

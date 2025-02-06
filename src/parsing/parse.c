@@ -14,6 +14,43 @@
 
 /* ************************************************************************** */
 /*                                                                            */
+/*                         :::  COUNT DIMENSIONS  :::                         */
+/*                                                                            */
+/*   Function: count_dimensions                                               */
+/*   Description: Determines the width and height of the map.                 */
+/*                                                                            */
+/*   - Reads each line to count the number of rows (height).                  */
+/*   - Calls validate_dimensions to determine the width consistency.          */
+/*   - Ensures proper error handling and resource cleanup.                    */
+/*                                                                            */
+/*   @param filename Path to the map file.                                    */
+/*   @param map Pointer to the map structure to store the dimensions.         */
+/*   @return 1 if successful, 0 if an error occurs.                           */
+/*                                                                            */
+/* ************************************************************************** */
+static int	count_dimensions(int fd, t_map *map)
+{
+	char	*line;
+
+	map->height = 0;
+	map->width = 0;
+	line = get_next_line(fd);
+	while (line)
+	{
+		if (!validate_dimensions(line, map))
+		{
+			free(line);
+			return (0);
+		}
+		map->height++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	return (1);
+}
+
+/* ************************************************************************** */
+/*                                                                            */
 /*                         :::  ALLOCATE ROW MEMORY  :::                      */
 /*                                                                            */
 /*   Function: allocate_row_memory                                            */
@@ -84,44 +121,6 @@ static int	allocate_map_memory(t_map *map)
 
 /* ************************************************************************** */
 /*                                                                            */
-/*                         :::  COUNT DIMENSIONS  :::                         */
-/*                                                                            */
-/*   Function: count_dimensions                                               */
-/*   Description: Determines the width and height of the map.                 */
-/*                                                                            */
-/*   - Reads each line to count the number of rows (height).                  */
-/*   - Calls validate_dimensions to determine the width consistency.          */
-/*   - Ensures proper error handling and resource cleanup.                    */
-/*                                                                            */
-/*   @param filename Path to the map file.                                    */
-/*   @param map Pointer to the map structure to store the dimensions.         */
-/*   @return 1 if successful, 0 if an error occurs.                           */
-/*                                                                            */
-/* ************************************************************************** */
-static int	count_dimensions(int fd, t_map *map)
-{
-	char	*line;
-
-	map->height = 0;
-	map->width = 0;
-	line = get_next_line(fd);
-	while (line)
-	{
-		if (!validate_dimensions(line, map))
-		{
-			ft_printf_fd(STDERR, "Error: Inconsistent row length\n");
-			free(line);
-			return (0);
-		}
-		map->height++;
-		free(line);
-		line = get_next_line(fd);
-	}
-	return (1);
-}
-
-/* ************************************************************************** */
-/*                                                                            */
 /*                         :::  PARSE VALUES  :::                             */
 /*                                                                            */
 /*   Function: parse_values                                                   */
@@ -168,7 +167,14 @@ int	parse_map(const char *filename, t_map *map)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		parse_error("Error: Failed to open file\n", fd, map);
+	{
+		if (errno == ENOENT)
+			parse_error("Error: File does not exist\n", fd, map);
+		else if (errno == EACCES)
+			parse_error("Error: Permission denied\n", fd, map);
+		else
+			parse_error(strerror(errno), fd, map);
+	}
 	if (!count_dimensions(fd, map))
 		parse_error("Error: Failed to count map dimensions\n", fd, map);
 	close(fd);
