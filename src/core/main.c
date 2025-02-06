@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/31 21:52:49 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/06 20:23:56 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,12 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		fatal_error("Usage: ./fdf <filename>");
+	ft_memset(&map, 0, sizeof(t_map));
 	if (!parse_map(argv[1], &map))
 		fatal_error("Error: Failed to parse map");
 	fdf = init_fdf(&map);
 	if (!fdf)
-	{
-		free_map(&map);
-		fatal_error("Error: Failed to initialize FDF");
-	}
+		parse_error("Error: Failed to initialize FDF", 0, &map);
 	render_fdf(fdf);
 	mlx_loop(fdf->mlx);
 	free_map(&map);

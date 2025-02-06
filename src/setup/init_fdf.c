@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/01/31 22:54:55 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/06 21:32:49 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,31 @@
 /*   Function: set_fixed_zoom                                                 */
 /*   Description: Determines the zoom level based on the map size.            */
 /*                                                                            */
-/*   - Uses a base zoom level of 20 for small maps.                           */
-/*   - Adjusts zoom dynamically for larger maps to maintain visibility.       */
-/*   - If the map's largest dimension exceeds 100, reduces zoom to 5.         */
-/*   - If the largest dimension exceeds 50 but is below 100, sets zoom to 10. */
+/*   - Calculates zoom based on window size and map dimensions.               */
+/*   - Uses separate calculations for width and height.                       */
+/*   - Selects the smaller zoom value to ensure the entire map fits.          */
+/*   - Enforces a minimum zoom level of 1.                                    */
+/*   - Limits the zoom to a maximum of 30 to prevent overscaling.             */
 /*                                                                            */
 /*   @param fdf Pointer to the FDF structure where zoom is stored.            */
 /*   @param map Pointer to the map structure to determine its size.           */
 /*                                                                            */
 /* ************************************************************************** */
+
 static void	set_fixed_zoom(t_fdf *fdf, t_map *map)
 {
-	int	max_size;
+	float	zoom_x;
+	float	zoom_y;
 
-	max_size = map->width;
-	if (map->height > map->width)
-		max_size = map->height;
-	fdf->zoom = 20;
-	if (max_size > 100)
-		fdf->zoom = 5;
-	else if (max_size > 50)
-		fdf->zoom = 10;
+	zoom_x = fdf->win_width / (map->width * 1.5);
+	zoom_y = fdf->win_height / (map->height * 1.5);
+	fdf->zoom = zoom_x;
+	if (zoom_y < zoom_x)
+		fdf->zoom = zoom_y;
+	if (fdf->zoom < 1)
+		fdf->zoom = 1;
+	if (fdf->zoom > 30)
+		fdf->zoom = 30;
 }
 
 /* ************************************************************************** */
@@ -50,8 +54,8 @@ static void	set_fixed_zoom(t_fdf *fdf, t_map *map)
 /*   Description: Centers the map within the window by adjusting offsets.     */
 /*                                                                            */
 /*   - Computes the center of the map based on width, height, and zoom.       */
-/*   - Adjusts offset_x and offset_y to position the map in the center.       */
-/*   - Ensures correct centering for different map sizes.                     */
+/*   - Uses different calculations for isometric and parallel projections.    */
+/*   - Ensures proper centering of both small and large maps.                 */
 /*                                                                            */
 /*   @param fdf Pointer to the FDF structure where offsets are stored.        */
 /*   @param map Pointer to the map structure to determine positioning.        */
@@ -62,10 +66,22 @@ static void	set_offset(t_fdf *fdf, t_map *map)
 	int	center_x;
 	int	center_y;
 
-	center_x = ((map->width - 1) - (map->height - 1)) * fdf->zoom / 2;
-	center_y = ((map->width - 1) + (map->height - 1)) * fdf->zoom / 4;
-	fdf->offset_x = fdf->win_width / 2 - center_x;
-	fdf->offset_y = fdf->win_height / 2 - center_y;
+	if (fdf->projections == 0)
+	{
+		center_x = ((map->width - 1) - (map->height - 1)) * fdf->zoom / 2;
+		center_y = ((map->width - 1) + (map->height - 1)) * fdf->zoom / 4;
+		fdf->offset_x = fdf->win_width / 2;
+		fdf->offset_x -= center_x;
+		fdf->offset_y = fdf->win_height / 2;
+		fdf->offset_y -= center_y;
+	}
+	else
+	{
+		fdf->offset_x = fdf->win_width / 2;
+		fdf->offset_x -= (map->width * fdf->zoom) / 2;
+		fdf->offset_y = fdf->win_height / 2;
+		fdf->offset_y -= (map->height * fdf->zoom) / 2;
+	}
 }
 
 /* ************************************************************************** */
@@ -138,10 +154,10 @@ t_fdf	*init_fdf(t_map *map)
 
 	fdf = (t_fdf *)malloc(sizeof(t_fdf));
 	if (!fdf)
-		fatal_error("Error: Memory allocation failed for FDF");
+		parse_error("Error: Memory allocation failed for FDF", 0, map);
 	ft_memset(fdf, 0, sizeof(t_fdf));
 	fdf->low_color = DEFAULT_COLOR;
-	fdf->high_color = DEFAULT_COLOR;
+	fdf->high_color = LIGHT_GREEN;
 	fdf->map = map;
 	set_window_size(fdf);
 	set_fixed_zoom(fdf, map);

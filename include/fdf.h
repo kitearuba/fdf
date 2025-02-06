@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:25:01 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/05 22:45:13 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:39:58 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <fcntl.h> // For open()
 # include <stdlib.h> // For exit() and abs()
 # include <math.h>
-#include <errno.h>
-#include <string.h>
+# include <errno.h>
+# include <string.h>
 # include "../minilibx-linux/mlx.h"
 # include "../libft/include/libft.h"
 # include "fdf_structs.h"

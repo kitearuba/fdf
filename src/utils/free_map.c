@@ -6,7 +6,7 @@
 /*   By: chrrodri <chrrodri@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:52:36 by chrrodri          #+#    #+#             */
-/*   Updated: 2025/02/05 22:41:13 by chrrodri         ###   ########.fr       */
+/*   Updated: 2025/02/06 20:29:30 by chrrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void	free_map_data(t_map *map)
 {
 	int	i;
 
+	if (!map || !map->data)
+		return ;
 	if (map->data)
 	{
 		i = 0;
@@ -45,6 +47,8 @@ static void	free_map_colors(t_map *map)
 {
 	int	i;
 
+	if (!map || !map->colors)
+		return ;
 	if (map->colors)
 	{
 		i = 0;
