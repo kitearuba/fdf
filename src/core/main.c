@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		fatal_error("Usage: ./fdf <filename>");
-	ft_memset(&map, 0, sizeof(t_map));
+	ft_memset(map, 0, sizeof(t_map));
 	if (!parse_map(argv[1], &map))
 		fatal_error("Error: Failed to parse map");
 	fdf = init_fdf(&map);
